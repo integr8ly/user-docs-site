@@ -1,5 +1,5 @@
 [build]
-  base = "netlify"
+  base = ""
   publish = "build/site"
   command = "/opt/build/repo/bin/netlify-build.sh"
 
