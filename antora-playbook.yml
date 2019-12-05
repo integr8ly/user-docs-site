@@ -10,8 +10,8 @@ content:
   - url: https://github.com/aerogear/voyager-server.git
     branches: master
     start_path: doc/integreatly
-  - url: https://github.com/pwright/aerogear-unifiedpush-server.git
-    branches: AGMS-1192
+  - url: https://github.com/aerogear-unifiedpush-server.git
+    branches: master
     start_path: integreatly-docs
 
 
