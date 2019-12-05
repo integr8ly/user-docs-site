@@ -6,11 +6,11 @@ site:
 content:
   sources:
   - url: https://github.com/integr8ly/user-documentation.git
-    branches: v1.5.0
+    branches: v1.5.0,master
   - url: https://github.com/aerogear/voyager-server.git
     branches: master
     start_path: doc/integreatly
-  - url: https://github.com/aerogear-unifiedpush-server.git
+  - url: https://github.com/aerogear/aerogear-unifiedpush-server.git
     branches: master
     start_path: integreatly-docs
 
