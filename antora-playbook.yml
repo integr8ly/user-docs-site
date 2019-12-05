@@ -6,7 +6,7 @@ site:
 content:
   sources:
   - url: https://github.com/integr8ly/user-documentation.git
-    branches: v1.6,v1.5.0
+    branches: v1.5.0
   - url: https://github.com/aerogear/voyager-server.git
     branches: master
     start_path: doc/integreatly
