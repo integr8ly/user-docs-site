@@ -6,7 +6,7 @@ site:
 content:
   sources:
   - url: https://github.com/integr8ly/user-documentation.git
-    branches: v1.5.0,v1.6,master
+    branches: v1.5.0,v1.6,v1.7,master
   - url: https://github.com/aerogear/datasync.git
     branches: master
     start_path: docs/integreatly
