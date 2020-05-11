@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Developing Applications on Red Hat Managed Integration 2 :: Integreatly Docs Site</title>
+    <link rel="canonical" href="https://integr8ly.github.io/user-docs-site/integreatly/developer-guide/master.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://integr8ly.github.io/user-docs-site">Integreatly Docs Site</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/"><img src="https://avatars1.githubusercontent.com/u/41683098?s=80&v=4"</a>        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://github.com/integr8ly"> </a>
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+                  </div>
+        <div class="navbar-item">
+         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="integreatly" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Integreatly</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">User Documentation</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Integreatly</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Data Sync</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../data-sync/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Integreatly</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../v1.7/index.html">v1.7</a>
+        </li>
+        <li class="version">
+          <a href="../v1.6/index.html">v1.6</a>
+        </li>
+        <li class="version">
+          <a href="../v1.5/index.html">v1.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Push Notifications</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../push/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Integreatly</a></li>
+    <li><a href="master.html">Developing Applications on Red Hat Managed Integration 2</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">master</button>
+  <div class="version-menu">
+    <a class="version is-current" href="master.html">master</a>
+    <a class="version is-missing" href="../v1.7/index.html">v1.7</a>
+    <a class="version is-missing" href="../v1.6/index.html">v1.6</a>
+    <a class="version is-missing" href="../v1.5/index.html">v1.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/integr8ly/user-documentation/edit/master/modules/ROOT/pages/developer-guide/master.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Developing Applications on Red Hat Managed Integration 2</h1>
+<div class="sect1">
+<h2 id="the-managed-integration-developer-experience"><a class="anchor" href="#the-managed-integration-developer-experience"></a>The Managed Integration developer experience</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Red Hat Managed Integration provides developers with tools and techniques to create and manage applications on a secure platform.</p>
+</div>
+<div class="paragraph">
+<p>Developers can use Solution Explorer to access the various user interfaces available in the cluster.</p>
+</div>
+<div class="paragraph">
+<p>If you are a new user, Red Hat recommends starting with the Solution Patterns in the <strong>All Solution Patterns</strong> tab of the Solution Explorer. These Solution Patterns introduce you to essential Managed Integration capabilities.</p>
+</div>
+<div class="paragraph">
+<p>As a developer, you can:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create and edit OpenShift projects</p>
+</li>
+<li>
+<p>Develop applications using Red Hat CodeReady Workspaces</p>
+</li>
+<li>
+<p>Create a realm in the Customer Application SSO instance</p>
+</li>
+<li>
+<p>Create Fuse Online integrations and view logs</p>
+</li>
+<li>
+<p>Create address spaces and addresses in AMQ Online</p>
+</li>
+<li>
+<p>Edit methods, metrics, and mapping rules of the 3scale backend</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If a developer needs to create products in 3scale, a cluster administrator must give that user <strong>Admin</strong> rights as described in the <a href="https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.8/html/admin_portal_guide/inviting-users-managing-rights#give_new_users_rights">3scale documentation</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Red Hat recommends that you use an external authentication service for AMQ Online address spaces in a production environment.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A developer can also use the OpenShift CLI tools on a local machine to interact with a  Red Hat Managed Integration cluster.
+The client is available from the <a href="https://access.redhat.com/downloads/content/290/ver=4.3/rhel---8/4.3.5/x86_64/product-software">download</a> page.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="projects"><a class="anchor" href="#projects"></a>Managed Integration Projects</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use Red Hat Managed Integration to develop and deploy cloud-native, integrated applications to your cluster as described in the <a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html-single/applications/index#projects">OpenShift Dedicated Applications guide</a>.
+Use the OpenShift Dedicated web console to complete common tasks. You can use the procedures in this guide to get started, then refer to the <a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html-single/applications/index#projects">OpenShift Dedicated Applications guide</a> for more details.</p>
+</div>
+<div class="paragraph">
+<p>You can create projects to manage your development work:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can create AMQ Online address space definitions in your project as described in <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.6/html-single/using_amq_online_on_openshift/index#create-address-space-cli-messaging">Creating address spaces using the command line</a>. The resulting pods are created in the <code>redhat-rhmi-amq-online</code> project, which is managed by Red Hat.</p>
+</li>
+<li>
+<p>If you delete the project, all associated resources are also deleted. For example, address spaces that you defined in your project are deleted.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Sharing access to projects is described in the <a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html-single/applications/index#odc-providing-project-permissions-using-developer-perspective_projects">Applications</a> guide.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="creating-a-project-using-the-web-console_projects"><a class="anchor" href="#creating-a-project-using-the-web-console_projects"></a>Creating a project using the web console</h3>
+<div class="paragraph">
+<p>If allowed by your cluster administrator, you can create a new project.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Projects starting with <code>redhat-</code>, <code>openshift-</code> and <code>kube</code> host cluster components that run as Pods and other infrastructure components. Do not create projects starting with these strings.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Navigate to <strong>Home</strong> &#8594; <strong>Projects</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Create Project</strong>.</p>
+</li>
+<li>
+<p>Enter your project details.</p>
+</li>
+<li>
+<p>Click <strong>Create</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="odc-creating-projects-using-developer-perspective_projects"><a class="anchor" href="#odc-creating-projects-using-developer-perspective_projects"></a>Creating a project using the Developer perspective in the web console</h3>
+<div class="paragraph">
+<p>You can use the <strong>Developer</strong> perspective in the OpenShift Dedicated web console to create a project in your namespace.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Projects starting with <code>redhat-</code>, <code>openshift-</code> and <code>kube</code> host cluster components that run as Pods and other infrastructure components. Do not create projects starting with these strings.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Ensure that you have the appropriate <a href="https://docs.openshift.com/container-platform/latest/authentication/using-rbac.html#default-roles_using-rbac">roles and permissions</a> to create projects, applications, and other workloads in OpenShift Dedicated.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Procedure</div>
+<p>You can create a project using the <strong>Developer</strong> perspective, as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <strong>Add</strong> view, click the <strong>Project</strong> drop-down menu to see a list of all available projects. Select <strong>Create Project</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/odc_create_project.png" alt="Create Project">
+</div>
+</div>
+</li>
+<li>
+<p>In the <strong>Create Project</strong> dialog box, enter a unique name for the <strong>Name</strong> field. For example, enter <code>myproject</code> as the name of the project in the <strong>Name</strong> field.</p>
+</li>
+<li>
+<p>Optionally, add the <strong>Display Name</strong> and <strong>Description</strong> details for the Project.</p>
+</li>
+<li>
+<p>Click <strong>Create</strong>.</p>
+</li>
+<li>
+<p>Navigate to the <strong>Advanced → Project Details</strong> page to see the dashboard for your project.</p>
+</li>
+<li>
+<p>In the <strong>Project</strong> drop-down menu at the top of the screen, select <strong>all projects</strong> to list all of the projects in your cluster. If you have adequate permissions for a project, you can use the  <strong>Options</strong> menu <span class="image"><img src="../_images/kebab.png" alt="kebab" title="Options menu"></span> to edit or delete the project.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-a-project-using-the-CLI_projects"><a class="anchor" href="#creating-a-project-using-the-CLI_projects"></a>Creating a project using the CLI</h3>
+<div class="paragraph">
+<p>If allowed by your cluster administrator, you can create a new project.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Projects starting with <code>redhat-</code>, <code>openshift-</code> and <code>kube</code> host cluster components that run as Pods and other infrastructure components. Do not create projects starting with these strings.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Run:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc new-project &lt;project_name&gt; \
+    --description="&lt;description&gt;" --display-name="&lt;display_name&gt;"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc new-project hello-openshift \
+    --description="This is an example project" \
+    --display-name="Hello OpenShift"</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The number of projects you are allowed to create
+may be limited by the system administrator.
+After your limit is reached, you might have to delete an existing project in
+order to create a new one.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-a-project-using-the-web-console_projects"><a class="anchor" href="#viewing-a-project-using-the-web-console_projects"></a>Viewing a project using the web console</h3>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Navigate to <strong>Home</strong> &#8594; <strong>Projects</strong>.</p>
+</li>
+<li>
+<p>Select a project to view.</p>
+<div class="paragraph">
+<p>On this page, click the <strong>Workloads</strong> button to see workloads in the project.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-a-project-using-the-CLI_projects"><a class="anchor" href="#viewing-a-project-using-the-CLI_projects"></a>Viewing a project using the CLI</h3>
+<div class="paragraph">
+<p>When viewing projects, you are restricted to seeing only the projects you have
+access to view based on the authorization policy.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>To view a list of projects, run:</p>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc get projects</pre>
+</div>
+</div>
+</li>
+<li>
+<p>You can change from the current project to a different project for CLI
+operations. The specified project is then used in all subsequent operations that
+manipulate project-scoped content:</p>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc project &lt;project_name&gt;</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>See <a href="#managing-images">Managing images in a Managed Integration cluster</a> for more information on how to manage images in your cluster.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="as_builds"><a class="anchor" href="#as_builds"></a>Managed Integration Builds</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Red Hat Managed Integration enables you to build applications as described in the <a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html-single/builds/index">builds</a> guide. The following topics are reproduced for your convenience.</p>
+</div>
+<div class="sect2">
+<h3 id="builds-about_builds"><a class="anchor" href="#builds-about_builds"></a>Builds</h3>
+<div class="paragraph">
+<p>A <em>build</em> is the process of transforming input parameters into a resulting
+object. Most often, the process is used to transform input parameters or source
+code into a runnable image. A <code>BuildConfig</code> object is the definition of the
+entire build process.</p>
+</div>
+<div class="paragraph">
+<p>OpenShift Dedicated uses Kubernetes by creating containers
+from build images and pushing them to a container image registry.</p>
+</div>
+<div class="paragraph">
+<p>Build objects share common characteristics including inputs for a build, the requirement to
+complete a build process, logging the build process, publishing resources from
+successful builds, and publishing the final status of the build. Builds take
+advantage of resource restrictions, specifying limitations on resources such as
+CPU usage, memory usage, and build or pod execution time.</p>
+</div>
+<div class="paragraph">
+<p>The OpenShift Dedicated build system provides extensible support for <em>build
+strategies</em> that are based on selectable types specified in the build API. There
+are three primary build strategies available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Docker build</p>
+</li>
+<li>
+<p>Source-to-Image (S2I) build</p>
+</li>
+<li>
+<p>Custom build</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By default, Docker builds and S2I builds are supported.</p>
+</div>
+<div class="paragraph">
+<p>The resulting object of a build depends on the builder used to create it. For
+Docker and S2I builds, the resulting objects are runnable images. For Custom
+builds, the resulting objects are whatever the builder image author has
+specified.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the Pipeline build strategy can be used to implement sophisticated
+workflows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Continuous integration</p>
+</li>
+<li>
+<p>Continuous deployment</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="builds-strategy-docker-build_builds"><a class="anchor" href="#builds-strategy-docker-build_builds"></a>Docker build</h3>
+<div class="paragraph">
+<p>The Docker build strategy invokes the docker build command, and it expects a
+repository with a <strong><em>Dockerfile</em></strong> and all required artifacts in it to produce a
+runnable image.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="build-strategy-s2i_builds"><a class="anchor" href="#build-strategy-s2i_builds"></a>Source-to-Image (S2I) build</h3>
+<div class="paragraph">
+<p>Source-to-Image (S2I) is a tool for building reproducible, Docker-formatted
+container images. It produces ready-to-run images by injecting application
+source into a container image and assembling a new image. The new image
+incorporates the base image (the builder) and built source and is ready to use
+with the <code>buildah run</code> command. S2I supports incremental builds, which re-use
+previously downloaded dependencies, previously built artifacts, etc.</p>
+</div>
+<div class="paragraph">
+<p>The advantages of S2I include the following:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Image flexibility
+</td>
+<td class="hdlist2">
+<p>S2I scripts can be written to inject
+application code into almost any existing Docker-formatted container image,
+taking advantage of the existing ecosystem. Note that, currently, S2I relies on
+<code>tar</code> to inject application source, so the image needs to be able to process
+tarred content.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Speed
+</td>
+<td class="hdlist2">
+<p>With S2I, the assemble process can perform a large number of complex
+operations without creating a new layer at each step, resulting in a fast
+process. In addition, S2I scripts can be written to re-use artifacts stored in a
+previous version of the application image, rather than having to download or
+build them each time the build is run.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Patchability
+</td>
+<td class="hdlist2">
+<p>S2I allows you to rebuild the application consistently if an
+underlying image needs a patch due to a security issue.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Operational efficiency
+</td>
+<td class="hdlist2">
+<p>By restricting build operations instead of allowing
+arbitrary actions, as a <strong><em>Dockerfile</em></strong> would allow, the PaaS operator can avoid
+accidental or intentional abuses of the build system.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Operational security
+</td>
+<td class="hdlist2">
+<p>Building an arbitrary <strong><em>Dockerfile</em></strong> exposes the host
+system to root privilege escalation. This can be exploited by a malicious user
+because the entire Docker build process is run as a user with Docker privileges.
+S2I restricts the operations performed as a root user and can run the scripts
+as a non-root user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+User efficiency
+</td>
+<td class="hdlist2">
+<p>S2I prevents developers from performing arbitrary <code>yum
+install</code> type operations, which could slow down development iteration, during
+their application build.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Ecosystem
+</td>
+<td class="hdlist2">
+<p>S2I encourages a shared ecosystem of images where you can leverage
+best practices for your applications.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Reproducibility
+</td>
+<td class="hdlist2">
+<p>Produced images can include all inputs including specific versions
+of build tools and dependencies. This ensures that the image can be reproduced
+precisely.</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="build-strategy-custom-build_builds"><a class="anchor" href="#build-strategy-custom-build_builds"></a>Custom build</h3>
+<div class="paragraph">
+<p>The Custom build strategy allows developers to define a specific builder image
+responsible for the entire build process. Using your own builder image allows
+you to customize your build process.</p>
+</div>
+<div class="paragraph">
+<p>A Custom builder image is a plain Docker-formatted container image embedded with
+build process logic, for example for building RPMs or base images.</p>
+</div>
+<div class="paragraph">
+<p>Custom builds run with a very high level of privilege and are not available to
+users by default. Only users who can be trusted with cluster administration
+permissions should be granted access to run custom builds.</p>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>See <a href="#managing-images">Managing images in a Managed Integration cluster</a> for more information on how to manage images in your cluster.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="managing-images"><a class="anchor" href="#managing-images"></a>Managing images in a Managed Integration cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Managed Integration allows you to create and push images to your cluster.
+For the Managed Integration cluster, the registry is located at:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>registry.&lt;cluster-suffix&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where &lt;cluster-suffix&gt; is the unique sub-domain for your cluster, for example, <code>example.u7y2.s1.openshift.com</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Use the instructions in the <a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html-single/registry/index">registry documentation</a> to access the registry.</p>
+</li>
+<li>
+<p>Follow the procedures for <a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html/images/managing-images">managing images</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="adding-solution-patterns"><a class="anchor" href="#adding-solution-patterns"></a>Adding Solution Patterns to your Managed Integration cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The home page of the Solution Explorer lists the Solution Patterns from all the Git repositories you are subscribed to. Any developer can add Solution Patterns to your cluster.</p>
+</div>
+<div class="paragraph">
+<p>This procedure describes how to subscribe your cluster to a Git repository that contains Solution Patterns.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Navigate to the <strong>Solution Explorer</strong>.</p>
+</li>
+<li>
+<p>Click the gear icon in the top right to display the <strong>Application settings</strong> screen.</p>
+</li>
+<li>
+<p>Enter the URLs of the Solution Pattern Git repositories you want to add to your cluster using the following syntax:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://github.com/&lt;org&gt;/&lt;repo&gt;.git</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>&lt;org&gt;</code> is the name of your GitHub organization and <code>&lt;repo&gt;</code> is the name of your repository.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>List URLs in the order you want them to appear in the Solution Explorer.</p>
+</li>
+<li>
+<p>Enter one URL per line.</p>
+</li>
+<li>
+<p>To include a specific branch, append #&lt;branch-name&gt; to the url.
+For example:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://github.com/&lt;org&gt;/&lt;repo&gt;.git#version-one</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+<div class="paragraph">
+<p>This triggers an automatic refresh of the Solution Explorer.</p>
+</div>
+</li>
+<li>
+<p>When the deployment is complete, refresh your browser.</p>
+<div class="paragraph">
+<p>You should now see new Solution Patterns available from the dashboard.</p>
+</div>
+</li>
+<li>
+<p>If the Git repository is updated with new content, the Solution Explorer is not automatically updated.</p>
+<div class="paragraph">
+<p>Refresh the Solution Explorer to view the changes:</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click the gear icon in the top right to display the <strong>Application settings</strong> screen.</p>
+</li>
+<li>
+<p>Click Save to trigger a refresh of the Solution Explorer app.</p>
+</li>
+<li>
+<p>When the Solution Explorer refresh is complete, refresh your browser.</p>
+</li>
+<li>
+<p>Navigate to the <strong>Solution Patterns</strong> tab to see the updated content.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can access the Git repository that contains the Solution Pattern source code by clicking the <strong>Repository</strong> link located in the upper right corner of each group of Solution Patterns on the <strong>All Solutions Patterns</strong> tab in the Solution Explorer.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>To learn more about creating solution patterns, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_managed_integration/2/html-single/creating_solution_patterns_for_red_hat_managed_integration_2">Creating Solution Patterns documentation</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This site was built using <a href="http://docs.antora.org">Antora</a> .</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

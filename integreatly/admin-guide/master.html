@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Administering Red Hat Managed Integration 2 :: Integreatly Docs Site</title>
+    <link rel="canonical" href="https://integr8ly.github.io/user-docs-site/integreatly/admin-guide/master.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://integr8ly.github.io/user-docs-site">Integreatly Docs Site</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/"><img src="https://avatars1.githubusercontent.com/u/41683098?s=80&v=4"</a>        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://github.com/integr8ly"> </a>
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+                  </div>
+        <div class="navbar-item">
+         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="integreatly" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Integreatly</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">User Documentation</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Integreatly</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Data Sync</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../data-sync/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Integreatly</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../v1.7/index.html">v1.7</a>
+        </li>
+        <li class="version">
+          <a href="../v1.6/index.html">v1.6</a>
+        </li>
+        <li class="version">
+          <a href="../v1.5/index.html">v1.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Push Notifications</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../push/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Integreatly</a></li>
+    <li><a href="master.html">Administering Red Hat Managed Integration 2</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">master</button>
+  <div class="version-menu">
+    <a class="version is-current" href="master.html">master</a>
+    <a class="version is-missing" href="../v1.7/index.html">v1.7</a>
+    <a class="version is-missing" href="../v1.6/index.html">v1.6</a>
+    <a class="version is-missing" href="../v1.5/index.html">v1.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/integr8ly/user-documentation/edit/master/modules/ROOT/pages/admin-guide/master.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Administering Red Hat Managed Integration 2</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document provides instructions for cluster administrators to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Manage cluster security</p>
+</li>
+<li>
+<p>Grant developers sufficient access to develop and deploy cloud-native, integrated applications</p>
+</li>
+<li>
+<p>Configure systems for production scenarios</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="permissions-cluster-administrator"><a class="anchor" href="#permissions-cluster-administrator"></a>Permissions of Managed Integration cluster administrators</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Typically, a cluster administrator uses the OpenShift CLI tools on a local machine to interact with a  Red Hat Managed Integration cluster.
+The client is available from the <a href="https://access.redhat.com/downloads/content/290/ver=4.3/rhel---8/4.3.5/x86_64/product-software">download</a> page.</p>
+</div>
+<div class="paragraph">
+<p>A cluster administrator can:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Manage the OpenShift cluster as described in <a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html-single/administering_a_cluster/index">Administering a cluster</a></p>
+</li>
+<li>
+<p>Create another cluster administrator</p>
+</li>
+<li>
+<p>Manage 3scale and give a developer admin rights in 3scale</p>
+</li>
+<li>
+<p>Administer the Customer Application SSO instance and give a developer administration privileges on the master realm</p>
+</li>
+<li>
+<p>Manage any realms created by a developer</p>
+</li>
+<li>
+<p>View the managed services projects in the OpenShift console</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Do not delete the <code>admin</code> user in the master realm of the Customer Application SSO instance. Red Hat manages this service using this user.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction-to-user-sso"><a class="anchor" href="#introduction-to-user-sso"></a>Introduction to the Customer Application SSO instance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Managed Integration includes an instance of Red Hat Single Sign-On to enable you to protect any applications you deploy on your cluster.</p>
+</div>
+<div class="paragraph">
+<p>You can navigate to the Customer Application SSO instance from the <strong>Protect customer applications</strong> item in the Solution Explorer.</p>
+</div>
+<div class="paragraph">
+<p>Red Hat manages this instance; however, all cluster administrators have admin level privileges to configure this instance.</p>
+</div>
+<div class="paragraph">
+<p>A user named <code>admin</code> manages this instance. Do not delete this user.</p>
+</div>
+<div class="paragraph">
+<p>A cluster administrator typically uses this instance to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create users in the <code>master</code> realm.</p>
+</li>
+<li>
+<p>Create and manage new realms.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A developer can create new realms and a cluster administrator can administer these realms.</p>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For more information about Red Hat Single Sign-On, see <a href="https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/">Red Hat Single Sign-On Product Documentation</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="disabling-realm-creation_admin-guide"><a class="anchor" href="#disabling-realm-creation_admin-guide"></a>Disabling realm creation for developers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, a developer can create a realm in the Customer Application SSO instance.
+This section describes how to disable this permission. You might want to disable this permission in a production cluster.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You are a cluster administrator.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the Solution Explorer.</p>
+</li>
+<li>
+<p>Navigate to the Customer Application SSO instance from the <strong>Protect customer applications</strong> item in the Solution Explorer.</p>
+</li>
+<li>
+<p>When prompted, choose the <strong>Administration Console</strong>.</p>
+</li>
+<li>
+<p>Choose <strong>Groups</strong> from the menu for the Master realm.</p>
+</li>
+<li>
+<p>Select the <strong>rhmi-developers</strong> group.</p>
+</li>
+<li>
+<p>Click <strong>Edit</strong> from the <strong>User Groups</strong> menu.</p>
+</li>
+<li>
+<p>Choose the <strong>Role Mappings</strong> tab.</p>
+</li>
+<li>
+<p>Select <strong>create-realm</strong> in the <strong>Assigned Roles</strong> panel.</p>
+</li>
+<li>
+<p>Click <strong>Remove selected</strong> to remove that role from the <strong>rhmi-developers</strong> group.</p>
+</li>
+<li>
+<p>To verify the change, log into the Customer Application SSO instance as a developer and make sure you cannot create a realm.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuring-github-oauth-for-codeready-workspaces_admin-guide"><a class="anchor" href="#configuring-github-oauth-for-codeready-workspaces_admin-guide"></a>Configuring GitHub OAuth for CodeReady Workspaces</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Red Hat Managed Integration provides a full developer workspace server and cloud IDE with CodeReady Workspaces, allowing you to pull and push to GitHub projects. You must configure a GitHub OAuth app before developers can create a repository, pull, and push GitHub projects.
+The GitHub OAuth app allows users to import projects into CodeReady Workspaces by using SSH addresses (<code>git@</code>). Users can then push to repositories and use the pull request panel.</p>
+</div>
+<div class="paragraph">
+<p>This procedure enables automatic SSH key upload to GitHub.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You must have prior experience using GitHub.</p>
+</li>
+<li>
+<p>You are a cluster administrator.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Register an application on GitHub:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To add a new application, log in to GitHub and go to OAuth applications in your developer settings. Click <a href="https://github.com/settings/profile">Settings</a> &#8594;
+<a href="https://github.com/settings/apps">Developer settings</a> &#8594;
+<a href="https://github.com/settings/developers">OAuth Apps</a> &#8594;
+<a href="https://github.com/settings/applications/new">Register a new OAuth application</a>.</p>
+</li>
+<li>
+<p>For GitHub Enterprise, go to your GitHub Enterprise homepage and then click
+<strong>Settings &#8594; Developer settings &#8594; Register a new application</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter an application name, for example, <code>CodeReady Workspaces</code>.</p>
+</li>
+<li>
+<p>For the homepage URL, enter the CodeReady Workspaces URL.</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://codeready-redhat-rhmi-codeready-workspaces.apps.&lt;cluster-suffix&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where &lt;cluster-suffix&gt; is the unique sub-domain for your cluster.
+For example, example.u7y2.s1.openshift.com</p>
+</div>
+</li>
+<li>
+<p>Enter the authorization callback URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://keycloak-edge-redhat-rhmi-rhsso.apps.&lt;cluster-suffix&gt;/auth/realms/openshift/broker/github/endpoint</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where &lt;cluster-suffix&gt; is the unique sub-domain for your cluster.
+For example, example.u7y2.s1.openshift.com</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Register application</strong>.</p>
+</li>
+<li>
+<p>Note the GitHub <strong>Client ID</strong> and GitHub <strong>Client Secret</strong>. You require these values later in the procedure.</p>
+</li>
+<li>
+<p>Log in to the OpenShift console as a cluster administrator.</p>
+</li>
+<li>
+<p>Navigate to the following URL in your browser:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://console-openshift-console.apps.&lt;cluster-suffix&gt;/k8s/ns/redhat-rhmi-operator/secrets/github-oauth-secret</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where &lt;cluster-suffix&gt; is the unique sub-domain for your cluster.
+For example, example.u7y2.s1.openshift.com</p>
+</div>
+</li>
+<li>
+<p>Select the <strong>Edit Secret</strong> option from the <strong>Actions</strong> menu.</p>
+</li>
+<li>
+<p>Enter the GitHub Client ID and Client Secret that you previously noted:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Enter the GitHub Client ID for the value of <strong>Client ID</strong>.</p>
+</li>
+<li>
+<p>Enter the GitHub Client Secret for the value of <strong>Secret</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>To validate, request that a developer creates a workspace and connects to GitHub:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Log in to Solution Explorer.</p>
+</li>
+<li>
+<p>Navigate to CodeReady Workspaces.</p>
+</li>
+<li>
+<p>Create a workspace as described in <a href="https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.0/html-single/end-user_guide/index#creating-and-configuring-a-new-codeready-workspaces-2.0-workspace">Creating and configuring a new CodeReady Workspaces 2.0 workspace</a>.</p>
+</li>
+<li>
+<p>Click <strong>Add or Import Project</strong> &#8594; <strong>GitHub</strong> &#8594; <strong>Connect your GitHub account</strong> &#8594; <strong>Authorize</strong>.</p>
+</li>
+<li>
+<p>Check that a list of projects is displayed in the Import Projects panel. If projects are not displayed, verify that you followed each step in this procedure.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuring-amq-online-for-production"><a class="anchor" href="#configuring-amq-online-for-production"></a>Configuring AMQ Online for production</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you plan to use AMQ Online in Managed Integration, you need to create an AMQ Online configuration for production.
+You must edit and apply YAML files using the command line (CLI) tools to configure AMQ Online.</p>
+</div>
+<div class="paragraph">
+<p>This section provides general guidance on configuring AMQ Online for production usage in Managed Integration.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You are a cluster administrator with the OpenShift CLI (<code>oc</code>) installed locally.</p>
+</li>
+<li>
+<p>Experience with configuring AMQ Online.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Configure AMQ Online in Managed Integration as described in <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.6/html-single/installing_and_managing_amq_online_on_openshift/index#configuring-messaging">Configuring AMQ Online</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The name of the AMQ Online project in your cluster is <code>redhat-rhmi-amq-online</code>.</p>
+</li>
+<li>
+<p>You must log in as a cluster administrator.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Configure your address space to use an external authentication service as shown in the <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.6/html-single/using_amq_online_on_openshift/index#ref-address-space-example-external-auth-service-override-messaging">address space example using an external authentication service</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The authentication services are configured by the AMQ Online service operator and are specified when creating an address space.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="network-policies_admin-guide"><a class="anchor" href="#network-policies_admin-guide"></a>Network policies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Managed Integration cluster hosts two types of projects:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Projects associated with managed services, for example, the <code>redhat-rhmi-amq-online</code> project is associated with AMQ Online. These projects support inbound and outbound connections.</p>
+</li>
+<li>
+<p>User projects, for example a web app. These projects support communication from the managed services mentioned above.
+If you want to disable that communication, see <a href="#disabling-communications_admin-guide">[disabling-communications_admin-guide]</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See the <a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html-single/networking/index">Networking</a> documentation for an introduction to OpenShift Dedicated networking.</p>
+</div>
+<div class="paragraph">
+<p>In OpenShift, there are two approaches to enabling communications:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using network policies</p>
+</li>
+<li>
+<p>Using the <code>join-project</code> option of the <code>oc</code> command</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In Managed Integration, you can enable communications using network policies.
+You cannot use the <code>join-projects</code> option of the <code>oc</code> command with managed services projects.</p>
+</div>
+<div class="sect2">
+<h3 id="enabling-communications_admin-guide"><a class="anchor" href="#enabling-communications_admin-guide"></a>Enabling communication between projects in your cluster</h3>
+<div class="paragraph">
+<p>By default, when you create projects in a cluster, communication between the projects is disabled.</p>
+</div>
+<div class="paragraph">
+<p>This procedure describes enabling communication for a project.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisite</div>
+<ul>
+<li>
+<p>You are a cluster administrator.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the cluster using the <code>oc</code> login command.</p>
+</li>
+<li>
+<p>Change project:</p>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc project &lt;project_name&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>&lt;project_name&gt;</code> is the name of a project that you want to accept communications from other projects.</p>
+</div>
+</li>
+<li>
+<p>Create a NetworkPolicy object as described in <a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html-single/networking/index#nw-networkpolicy-create_configuring-networkpolicy-plugin">Creating a NetworkPolicy object</a> with the following content:</p>
+<div class="listingblock">
+<div class="content">
+<pre>kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow-all
+spec:
+  podSelector:
+  ingress:
+  - {}</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This policy configuration enables this project to communicate with all projects in the cluster.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html-single/networking/index#understanding-networking">Understanding Networking</a> in a Managed Integration cluster</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="manage-3scale-users_admin-guide"><a class="anchor" href="#manage-3scale-users_admin-guide"></a>3scale user management</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Red Hat 3scale API Management allows you to manage APIs for internal or external users.</p>
+</div>
+<div class="paragraph">
+<p>You can navigate to the 3scale console from the <strong>Manage APIs</strong> item in the Solution Explorer.</p>
+</div>
+<div class="paragraph">
+<p>User management with 3scale in Managed Integration can be summarized as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All users with access to the cluster can log in to 3scale API Management.</p>
+</li>
+<li>
+<p>All cluster administrators have administrator privileges in 3scale.</p>
+</li>
+<li>
+<p>Only a cluster administrator or a developer with 3scale administrator privileges can create new products.</p>
+</li>
+<li>
+<p>Only a cluster administrator can grant 3scale administrator privileges to any cluster user.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <a href="https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.8/html/admin_portal_guide/index">Portal Admin Guide</a> describes how to administer users in 3scale. However, you cannot delete a user from 3scale in Managed Integration. You must revoke the cluster privileges of that user. If a user is removed from the cluster, the user is also removed from 3scale.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For more information on managing 3scale users, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.8/html/admin_portal_guide/index">Portal Admin Guide</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This site was built using <a href="http://docs.antora.org">Antora</a> .</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Implementing real-time updates on on the client :: Integreatly Docs Site</title>
+    <link rel="canonical" href="https://integr8ly.github.io/user-docs-site/data-sync/latest/js-client-realtime-updates.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://integr8ly.github.io/user-docs-site">Integreatly Docs Site</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/"><img src="https://avatars1.githubusercontent.com/u/41683098?s=80&v=4"</a>        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://github.com/integr8ly"> </a>
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+                  </div>
+        <div class="navbar-item">
+         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="data-sync" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Data Sync</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Data Sync</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-getting-started.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-query.html">Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-mutation.html">Mutations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-offline.html">Offline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-realtime.html">Subscriptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-auth.html">Authz</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-conflict.html">Conflict Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-files.html">File Upload</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-openshift.html">Running on Integreatly</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Data Sync</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Data Sync</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Integreatly</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integreatly/index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.7/index.html">v1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.6/index.html">v1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.5/index.html">v1.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Push Notifications</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../push/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../integreatly/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Data Sync</a></li>
+    <li><a href="js-client-realtime-updates.html">Implementing real-time updates on on the client</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/aerogear/datasync/edit/master/docs/integreatly/modules/ROOT/pages/js-client-realtime-updates.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Implementing real-time updates on on the client</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A core concept of the GraphQL specification is an operation type called <code>Subscription</code>, they provide a mechanism for real time updates.
+For more information on GraphQL subscriptions  see the <a href="https://www.apollographql.com/docs/apollo-server/features/subscriptions.html">Subscriptions documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>To do this GraphQL Subscriptions utilise websockets to enable clients to subscribe to published changes.</p>
+</div>
+<div class="paragraph">
+<p>The architecture of websockets is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Client connects to websocket server.</p>
+</li>
+<li>
+<p>Upon certain events, the server can publish the results of these events to the websocket.</p>
+</li>
+<li>
+<p>Any <em>currently connected</em> client to that websocket receives these results.</p>
+</li>
+<li>
+<p>The client can close the connection at any time and no longer receives updates.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Websockets are a perfect solution for delivering messages to currently active clients.
+To receive updates the client must be currently connected to the websocket server, updates made over this websocket while the client is offline are not consumed by the client.
+For this use case Push Notifications are recommended.</p>
+</div>
+<div class="paragraph">
+<p>{sync-client} comes with subscription support out of the box including auto-reconnection upon device restart or network reconnect.
+To enable subscriptions on your client set the following
+paramater in the {sync-client} config object. A DataSyncConfig interface is also available from {sync-client} if you wish to use it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting_up_a_client_to_use_subscriptions"><a class="anchor" href="#_setting_up_a_client_to_use_subscriptions"></a>Setting up a client to use subscriptions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To set up a client to use subscriptions:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Provide a <code>wsUrl</code> string in the config object as follows:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const config = {
+    wsUrl: "ws://&lt;your_websocket_url&gt;"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>&lt;your_websocket_url&gt;</code> is the full URL of the websocket endpoint of your GraphQL server.</p>
+</div>
+</li>
+<li>
+<p>Use the object from step 1 to initialise {sync-client}:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const { createClient } = require("@aerogear/voyager-client");
+
+const client = createClient(config)</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_subscriptions"><a class="anchor" href="#_using_subscriptions"></a>Using Subscriptions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A standard flow to utilise subscriptions is as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make a network query to get data from the server</p>
+</li>
+<li>
+<p>Watch the cache for changes to queries</p>
+</li>
+<li>
+<p>Subscribe to changes pushed from the server</p>
+</li>
+<li>
+<p>Unsubscibe when leaving the view where there is an active subscription</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In the three examples below, <code>subscribeToMore</code> ensures that any further updates received from the server force the updateQuery function to be called with <code>subscriptionData</code> from the server.</p>
+</div>
+<div class="paragraph">
+<p>Using <code>subscribeToMore</code> ensures the cache is easily updated as all GraphQL queries are automatically notified.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see the  <a href="https://www.apollographql.com/docs/angular/features/subscriptions/#subscribetomore">subscribeToMore documentation</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">getTasks() {
+  const tasks = client.watchQuery({
+    query: GET_TASKS
+  });
+
+  tasks.subscribeToMore({
+    document: TASK_ADDED_SUBSCRIPTION,
+    updateQuery: (prev, { subscriptionData }) =&gt; {
+    // Update logic here.
+    }
+  });
+  return tasks;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To allow {sync-client} to automatically generate the <code>updateQuery</code> function for you, please see the <a href="#cache-update-helpers">Cache Update Helpers</a> section.</p>
+</div>
+<div class="paragraph">
+<p>You can then use this query in our application to subscribe to changes so that the front end is always updated when new
+data is returned from the server.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">this.tasks = [];
+this.getTasks().subscribe(result =&gt; {
+  this.tasks = result.data &amp;&amp; result.data.allTasks;
+})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that it is also a good idea to unsubscribe from a query upon leaving a page. This prevents possible memory leaks.
+This can be done by calling unsubscribe() as shown in the following example. This code should be placed in the appropriate place.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">this.getTasks().unsubscribe();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_handling_network_state_changes"><a class="anchor" href="#_handling_network_state_changes"></a>Handling network state changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When using subscriptions to provide your client with realtime updates it is important to monitor network state because the client will be out of sync if the server if updated when the the client is offline.</p>
+</div>
+<div class="paragraph">
+<p>To avoid this, {sync-client} provides a <code>NetworkStatus</code> interface which can be used along with the <code>NetworkInfo</code> interface to implement custom checks of network status.</p>
+</div>
+<div class="paragraph">
+<p>Use the following example to re-run a query after a client returns to an online state:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const { CordovaNetworkStatus, NetworkInfo } = require("@aerogear/voyager-client");
+const networkStatus = new CordovaNetworkStatus();
+
+networkStatus.onStatusChangeListener({
+  onStatusChange(networkInfo: NetworkInfo) {
+    const online = networkInfo.online;
+    if (online) {
+      client.watchQuery({
+        query: GET_TASKS
+      });
+    }
+  }
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This site was built using <a href="http://docs.antora.org">Antora</a> .</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

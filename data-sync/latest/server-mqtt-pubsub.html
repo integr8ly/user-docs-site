@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Configuring a Publish Subscribe mechanism :: Integreatly Docs Site</title>
+    <link rel="canonical" href="https://integr8ly.github.io/user-docs-site/data-sync/latest/server-mqtt-pubsub.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://integr8ly.github.io/user-docs-site">Integreatly Docs Site</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/"><img src="https://avatars1.githubusercontent.com/u/41683098?s=80&v=4"</a>        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://github.com/integr8ly"> </a>
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+                  </div>
+        <div class="navbar-item">
+         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="data-sync" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Data Sync</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Data Sync</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-getting-started.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-query.html">Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-mutation.html">Mutations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-offline.html">Offline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-realtime.html">Subscriptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-auth.html">Authz</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-conflict.html">Conflict Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-files.html">File Upload</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-openshift.html">Running on Integreatly</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Data Sync</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Data Sync</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Integreatly</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integreatly/index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.7/index.html">v1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.6/index.html">v1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.5/index.html">v1.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Push Notifications</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../push/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../integreatly/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Data Sync</a></li>
+    <li><a href="server-mqtt-pubsub.html">Configuring a Publish Subscribe mechanism</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/aerogear/datasync/edit/master/docs/integreatly/modules/ROOT/pages/server-mqtt-pubsub.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Configuring a Publish Subscribe mechanism</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use the Apollo PubSub mechanism for development, but you must use the MQTT PubSub mechanism for production.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_the_apollo_pubsub_mechanism"><a class="anchor" href="#_using_the_apollo_pubsub_mechanism"></a>Using the Apollo PubSub mechanism</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="#realtime-updates-{context}">[realtime-updates-{context}]</a> section describes how to set up the default <code>PubSub</code> provided by <code>apollo-server</code>. For a production system, use <a href="https://npmjs.com/package/@aerogear/graphql-mqtt-subscriptions">MQTT PubSub</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_the_mqtt_pubsub_mechanism"><a class="anchor" href="#_using_the_mqtt_pubsub_mechanism"></a>Using the MQTT PubSub mechanism</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="https://npm.im/@aerogear/graphql-mqtt-subscriptions"><code>@aerogear/graphql-mqtt-subscriptions</code></a> module provides an <code>AsyncIterator</code> interface used for <a href="#realtime-updates-{context}">implementing subscription resolvers</a>
+It connects the {sync-service} server to an MQTT broker to support horizontally scalable subscriptions.</p>
+</div>
+<div class="paragraph">
+<p>Initialize an MQTT client and pass that client to the <code>@aerogeaar/graphql-mqtt-subscriptions</code> module, for example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const mqtt = require('mqtt')
+const { MQTTPubSub } = require('@aerogear/graphql-mqtt-subscriptions')
+
+const client = mqtt.connect('mqtt://test.mosquitto.org', {
+  reconnectPeriod: 1000,
+})
+
+const pubsub = new MQTTPubSub({
+  client
+})</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In the example, an <code>mqtt</code> client is created using <code>mqtt.connect</code> and then this client is passed into an <code>MQTTPubSub</code> instance.
+The <code>pubsub</code> instance can then be used to publish and subscribe to events in the server.</p>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="https://www.npmjs.com/package/mqtt#connect">mqtt.connect documentation</a>.</p>
+</li>
+<li>
+<p><a href="https://npmjs.com/package/@aerogear/graphql-mqtt-subscriptions">MQTTPubSub documentation</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This site was built using <a href="http://docs.antora.org">Antora</a> .</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

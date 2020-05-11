@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Implementing real-time updates on a Data Sync server :: Integreatly Docs Site</title>
+    <link rel="canonical" href="https://integr8ly.github.io/user-docs-site/data-sync/latest/server-realtime-updates.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://integr8ly.github.io/user-docs-site">Integreatly Docs Site</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/"><img src="https://avatars1.githubusercontent.com/u/41683098?s=80&v=4"</a>        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://github.com/integr8ly"> </a>
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+                  </div>
+        <div class="navbar-item">
+         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="data-sync" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Data Sync</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Data Sync</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-getting-started.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-query.html">Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-mutation.html">Mutations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-offline.html">Offline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-realtime.html">Subscriptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-auth.html">Authz</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-conflict.html">Conflict Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-files.html">File Upload</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-openshift.html">Running on Integreatly</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Data Sync</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Data Sync</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Integreatly</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integreatly/index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.7/index.html">v1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.6/index.html">v1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.5/index.html">v1.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Push Notifications</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../push/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../integreatly/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Data Sync</a></li>
+    <li><a href="server-realtime-updates.html">Implementing real-time updates on a Data Sync server</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/aerogear/datasync/edit/master/docs/integreatly/modules/ROOT/pages/server-realtime-updates.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Implementing real-time updates on a Data Sync server</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The follow code shows typical code for a Data Sync Server without subscriptions:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const apolloServer = VoyagerServer({
+  typeDefs,
+  resolvers
+})
+
+const app = express()
+apolloServer.applyMiddleware({ app })
+
+app.listen({ port }, () =&gt;
+  console.log(`🚀 Server ready at http://localhost:${port}${apolloServer.graphqlPath}`)
+)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The following sections outline the steps required to enable real-time updates:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Implement a SubscriptionServer</p>
+</li>
+<li>
+<p>Implement a Publish Subscribe Mechanism</p>
+</li>
+<li>
+<p>Define subscriptions in the schema</p>
+</li>
+<li>
+<p>Implement resolvers</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementing_a_subscriptionserver_using_voyager_subscription"><a class="anchor" href="#_implementing_a_subscriptionserver_using_voyager_subscription"></a>Implementing a SubscriptionServer using voyager-subscription</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To allow you create GraphQL subscription types in your schema:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install the <code>@aerogear/voyager-subscriptions</code> package:</p>
+<div class="listingblock">
+<div class="content">
+<pre>$ npm i @aerogear/voyager-subscriptions</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Configure SubscriptionServer using <code>@aerogear/voyager-subscriptions</code></p>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const { createSubscriptionServer } = require('@aerogear/voyager-subscriptions')
+
+const apolloServer = VoyagerServer({
+  typeDefs,
+  resolvers
+})
+
+const app = express()
+apolloServer.applyMiddleware({ app })
+const port = 4000
+
+const server = app.listen({ port }, () =&gt; {
+  console.log(`🚀 Server ready at http://localhost:${port}${apolloServer.graphqlPath}`)
+
+  createSubscriptionServer({ schema: apolloServer.schema }, {
+    server,
+    path: '/graphql'
+  })
+})</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>createSubscriptionServer</code> code:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>returns a <code>SubscriptionServer</code> instance</p>
+</li>
+<li>
+<p>installs handlers for</p>
+<div class="ulist">
+<ul>
+<li>
+<p>managing websocket connections</p>
+</li>
+<li>
+<p>delivering subscriptions on the server</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>provides integrations with other modules such as <code>@aerogear/voyager-keycloak</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For more information about arguments and options, see the <a href="https://npm.im/subscriptions-transport-ws">subscriptions-transport-ws</a> module.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementing_a_publish_subscribe_mechanism"><a class="anchor" href="#_implementing_a_publish_subscribe_mechanism"></a>Implementing a Publish Subscribe Mechanism</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This procedure describes an in-memory implementation which is useful for prototyping but not suitable for production. {org-name} recommends using <a href="npm.im/@aerogear/graphql-mqtt-subscriptions">MQTT PubSub</a> in production. See <a href="#pub-sub">[pub-sub]</a> for more information about all the implementation methods.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To provide a channel to push updates to the client using the default <code>PubSub</code> provided by <code>apollo-server</code>, you implement a Publish Subscribe mechanism, for example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const { PubSub } = require('apollo-server')
+
+const pubsub = new PubSub()</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Addtional Information</div>
+<p>Subscriptions depend on a <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">publish subscribe</a> mechanism to generate the events that notify a subscription. There are <a href="https://www.apollographql.com/docs/apollo-server/features/subscriptions/#pubsub-implementations">several PubSub implementations</a> available based on the <code>PubSubEngine</code> interface.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_defining_subscriptions_in_the_schema"><a class="anchor" href="#_defining_subscriptions_in_the_schema"></a>Defining subscriptions in the schema</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Subscriptions are a root level type.
+They are defined in the schema similar to <code>Query</code> and <code>Mutation</code>.
+For example, in the following schema, a <code>Task</code> type is defined and so are mutations and subscriptions.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>type Subscription {
+  taskCreated: Task
+}
+
+type Mutation {
+  createTask(title: String!, description: String!): Task
+}
+
+type Task {
+  id: ID!
+  title: String!
+  description: String!
+}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementing_resolvers"><a class="anchor" href="#_implementing_resolvers"></a>Implementing resolvers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Inside the resolver map, subscription resolvers return an <code>AsyncIterator,</code> which listens for events.
+To generate an event, call the <code>publish</code> method.
+The <code>pubsub.publish</code> code is typically located inside a mutation resolver.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, when a new task is created, the <code>createTask</code> resolver publishes the result of this mutation to the <code>TaskCreated</code> channel.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const TASK_CREATED = 'TaskCreated'
+
+const resolvers = {
+  Subscription: {
+    taskCreated: {
+      subscribe: () =&gt; pubSub.asyncIterator(TASK_CREATED)
+    }
+  },
+  Mutation: {
+    createTask: async (obj, args, context, info) =&gt; {
+      const task = tasks.create(args)
+      pubSub.publish(TASK_CREATED, { taskCreated: task })
+      return task
+    }
+  },
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This subscription server does not implement authentication or authorization. For information about implementing authenication and authorization, see <a href="./ds-auth.html#implementing-authentication-and-authorization-on-your-client">Supporting authentication and authorization in your mobile app</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For information on how to use subscriptions in your client code, see <a href="#sync-js-client-realtime-updates">Realtime Updates</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This site was built using <a href="http://docs.antora.org">Antora</a> .</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating Solution Patterns for Red Hat Managed Integration 2 :: Integreatly Docs Site</title>
+    <link rel="canonical" href="https://integr8ly.github.io/user-docs-site/integreatly/creating-sps/master.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://integr8ly.github.io/user-docs-site">Integreatly Docs Site</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/"><img src="https://avatars1.githubusercontent.com/u/41683098?s=80&v=4"</a>        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://github.com/integr8ly"> </a>
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+                  </div>
+        <div class="navbar-item">
+         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="integreatly" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Integreatly</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">User Documentation</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Integreatly</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Data Sync</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../data-sync/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Integreatly</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../v1.7/index.html">v1.7</a>
+        </li>
+        <li class="version">
+          <a href="../v1.6/index.html">v1.6</a>
+        </li>
+        <li class="version">
+          <a href="../v1.5/index.html">v1.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Push Notifications</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../push/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Integreatly</a></li>
+    <li><a href="master.html">Creating Solution Patterns for Red Hat Managed Integration 2</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">master</button>
+  <div class="version-menu">
+    <a class="version is-current" href="master.html">master</a>
+    <a class="version is-missing" href="../v1.7/index.html">v1.7</a>
+    <a class="version is-missing" href="../v1.6/index.html">v1.6</a>
+    <a class="version is-missing" href="../v1.5/index.html">v1.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/integr8ly/user-documentation/edit/master/modules/ROOT/pages/creating-sps/master.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Creating Solution Patterns for Red Hat Managed Integration 2</h1>
+<div class="sect1">
+<h2 id="about-creating-solution-patterns"><a class="anchor" href="#about-creating-solution-patterns"></a>Introducing Solution Patterns</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Solution Patterns are templates that shorten development time and encourage best practices by providing opinionated instructions about how to develop cloud-native, integrated applications on your Red Hat Managed Integration cluster.
+You can create a Solution Pattern to communicate technical concepts and provide guidance for users in your organization.
+Your Solution Pattern should document a clear user story that addresses a goal.</p>
+</div>
+<div class="paragraph">
+<p>To write a Solution Pattern you require a knowledge of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>AsciiDoc: A lightweight markup language that is similar to Markdown.</p>
+</li>
+<li>
+<p>JSON: A lightweight format for storing and transporting data.</p>
+</li>
+<li>
+<p>Git: An open source distributed version control system. You must push your AsciiDoc and JSON files to a Git repository accessbile from your cluster, for example, GitHub or GitLab.</p>
+</li>
+<li>
+<p>OpenShift: A platform for developing and running containerized applications. You can add Solution Patterns using the OpenShift console.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You must create and edit an AsciiDoc file to contruct a Solution Pattern.
+The AsciiDoc file should resemble the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">= Demonstrating features <i class="conum" data-value="1"></i><b>(1)</b>
+
+A short description for the feature. <i class="conum" data-value="2"></i><b>(2)</b>
+
+== Doing a task <i class="conum" data-value="3"></i><b>(3)</b>
+
+. Do this first: <i class="conum" data-value="4"></i><b>(4)</b>
+. Do this second:</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Solution Pattern title. Only one level 1 heading per file is allowed.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The Solution Pattern description is displayed on the Solution Explorer home page.
+Do not use AsciiDoc attributes in this line because they are not displayed correctly on the homepage.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Optional subtasks describe how to complete the task.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>A numbered list of steps the user must perform.</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For more information on writing in AsciiDoc, see the <a href="http://asciidoc.org/" target="_blank" rel="noopener">Asciidoc Homepage</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="downloading-solution-pattern-template"><a class="anchor" href="#downloading-solution-pattern-template"></a>Downloading the Solution Pattern template</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To start developing your Solution Pattern, download the template repository.
+The template contains:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The directory structure</p>
+</li>
+<li>
+<p>An example Solution Pattern</p>
+</li>
+<li>
+<p>An example manifest file</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Clone the template repository</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone https://github.com/integr8ly/walkthrough-template.git</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Change to the <code>walkthrough-template</code> directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd walkthrough-template</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="understand-file-structure"><a class="anchor" href="#understand-file-structure"></a>Solution Pattern file structure</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>.
+├── walkthroughs-config.json <i class="conum" data-value="1"></i><b>(1)</b>
+└── walkthroughs<i class="conum" data-value="2"></i><b>(2)</b>
+    ├── &lt;identifier&gt; <i class="conum" data-value="3"></i><b>(3)</b>
+    │   ├── images <i class="conum" data-value="4"></i><b>(4)</b>
+    │   │   └── image.png
+    │   ├── walkthrough.adoc <i class="conum" data-value="5"></i><b>(5)</b>
+    │   └── walkthrough.json <i class="conum" data-value="6"></i><b>(6)</b>
+    ├── &lt;walkthrough2-id&gt; <i class="conum" data-value="3"></i><b>(3)</b>
+    └── &lt;walkthrough3-id&gt; <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This is an optional file that defines metadata for the set of Solution Patterns in the repository.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>This is a required directory. All Solution Patterns are defined under <code>walkthroughs</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The directory name of a Solution Pattern. This is also displayed in the URL of the Solution Explorer.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>All of the images for the Solution Pattern.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><strong>walkthrough.adoc</strong> is where the content of the Solution Pattern is written in AsciiDoc format.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td><strong>walkthrough.json</strong> is the manifest file of the Solution Pattern where you can define dependencies.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The default <code>walkthrough.json</code> does not define any dependent services:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "dependencies": {
+    "repos": [],
+    "serviceInstances": []
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="committing-solution-pattern-remote-repository"><a class="anchor" href="#committing-solution-pattern-remote-repository"></a>Committing your Solution Pattern to a remote repository</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Push your repository to GitHub or GitLab.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create a new remote repository and take note of the remote URL.</p>
+</li>
+<li>
+<p>Add the remote repository as you upstream repository.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git remote add upstream &lt;remote URL&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Commit the changes that you added to your local repository.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git commit -m "Add commit message"</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Push the changes in your local repository to GitHub.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git push -u upstream master</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="adding-solution-patterns"><a class="anchor" href="#adding-solution-patterns"></a>Adding Solution Patterns to your Managed Integration cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The home page of the Solution Explorer lists the Solution Patterns from all the Git repositories you are subscribed to. Any developer can add Solution Patterns to your cluster.</p>
+</div>
+<div class="paragraph">
+<p>This procedure describes how to subscribe your cluster to a Git repository that contains Solution Patterns.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Navigate to the <strong>Solution Explorer</strong>.</p>
+</li>
+<li>
+<p>Click the gear icon in the top right to display the <strong>Application settings</strong> screen.</p>
+</li>
+<li>
+<p>Enter the URLs of the Solution Pattern Git repositories you want to add to your cluster using the following syntax:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://github.com/&lt;org&gt;/&lt;repo&gt;.git</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>&lt;org&gt;</code> is the name of your GitHub organization and <code>&lt;repo&gt;</code> is the name of your repository.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>List URLs in the order you want them to appear in the Solution Explorer.</p>
+</li>
+<li>
+<p>Enter one URL per line.</p>
+</li>
+<li>
+<p>To include a specific branch, append #&lt;branch-name&gt; to the url.
+For example:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://github.com/&lt;org&gt;/&lt;repo&gt;.git#version-one</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+<div class="paragraph">
+<p>This triggers an automatic refresh of the Solution Explorer.</p>
+</div>
+</li>
+<li>
+<p>When the deployment is complete, refresh your browser.</p>
+<div class="paragraph">
+<p>You should now see new Solution Patterns available from the dashboard.</p>
+</div>
+</li>
+<li>
+<p>If the Git repository is updated with new content, the Solution Explorer is not automatically updated.</p>
+<div class="paragraph">
+<p>Refresh the Solution Explorer to view the changes:</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click the gear icon in the top right to display the <strong>Application settings</strong> screen.</p>
+</li>
+<li>
+<p>Click Save to trigger a refresh of the Solution Explorer app.</p>
+</li>
+<li>
+<p>When the Solution Explorer refresh is complete, refresh your browser.</p>
+</li>
+<li>
+<p>Navigate to the <strong>Solution Patterns</strong> tab to see the updated content.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can access the Git repository that contains the Solution Pattern source code by clicking the <strong>Repository</strong> link located in the upper right corner of each group of Solution Patterns on the <strong>All Solutions Patterns</strong> tab in the Solution Explorer.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>To learn more about creating solution patterns, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_managed_integration/2/html-single/creating_solution_patterns_for_red_hat_managed_integration_2">Creating Solution Patterns documentation</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="editing-overview-section-solution-pattern"><a class="anchor" href="#editing-overview-section-solution-pattern"></a>Editing the overview section of a Red Hat Managed Integration Solution Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The first section of the <code>walkthrough.adoc</code> describes your Solution Pattern. The overview section outlines the purpose of the Solution Pattern.
+The overview is displayed when a user clicks on the Solution Pattern in the Solution Explorer.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The overview is defined by the content before the first task.</p>
+</li>
+<li>
+<p>The title of the overview is the name of the Solution Pattern.</p>
+</li>
+<li>
+<p>The overview heading is followed by a short introduction to the Solution Pattern.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The overview description is displayed in the Solution Explorer dashboard for the Solution Pattern.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have created a repository using the Solution Pattern template.</p>
+</li>
+<li>
+<p>You have added the Solution Pattern repository to your cluster as described in <a href="#adding-solution-patterns">Adding Solution Patterns to your Managed Integration cluster</a>.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Edit the <code>walkthroughs/1-template-walkthrough/walkthrough.adoc</code> file.</p>
+</li>
+<li>
+<p>Change the title of the Solution Pattern, for example:</p>
+<div class="listingblock">
+<div class="content">
+<pre>= My first Solution Pattern</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add content for the overview section.</p>
+</li>
+<li>
+<p>Commit your changes.</p>
+<div class="listingblock">
+<div class="content">
+<pre>git commit -am "add overview"</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Push your changes to the remote repository.</p>
+<div class="listingblock">
+<div class="content">
+<pre>git push upstream master</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To see your changes in Solution Explorer, refresh Solution explorer by clicking the gear icon followed by <strong>Save</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="editing-task-sections-solution-pattern"><a class="anchor" href="#editing-task-sections-solution-pattern"></a>Editing task sections of a Red Hat Managed Integration Solution Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tasks are procedures in the <code>walkthrough.adoc</code> file that guide a user through a Solution Pattern.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can create another level of subtasks by creating a third level heading (<code>===</code>). Subtasks are displayed in the Solution Explorer on the parent task page.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have created a repository using the Solution Pattern template.</p>
+</li>
+<li>
+<p>You have added the Solution Pattern repository to your cluster as described in <a href="#adding-solution-patterns">Adding Solution Patterns</a>.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Edit the <code>walkthroughs/1-template-walkthrough/walkthrough.adoc</code> file.</p>
+</li>
+<li>
+<p>Change the task title, for example:</p>
+<div class="listingblock">
+<div class="content">
+<pre>== Doing the first task</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Write a introduction about the task.</p>
+</li>
+<li>
+<p>Change the task timing estimate. Each task has an attribute to communicate the approximate time that the task should take the user to perform.</p>
+<div class="paragraph">
+<p>This is displayed in the Solution Pattern overview as part of the task list.</p>
+</div>
+<div class="paragraph">
+<p>For example to change the estimated time for the first task to 12 minutes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[time=12]
+== Doing the first task</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Edit the numbered list:</p>
+<div class="listingblock">
+<div class="content">
+<pre>. First step
+. Second step
+. Third step</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Save, commit, and push your changes.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The content of the Solution Explorer does not change automatically after a change in the subscribed repository. You must redeploy the Solution Explorer for the change to be visible.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Redeploy the Solution Explorer:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click the gear icon in the top right to display the <strong>Application settings</strong> screen.</p>
+</li>
+<li>
+<p>Click Save to trigger a redeployment of the Solution Explorer app.</p>
+</li>
+<li>
+<p>When the deployment is complete, refresh your browser.</p>
+</li>
+<li>
+<p>Navigate to the <strong>Solution Patterns</strong> tab to see the updated content.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="editing-procedures-solution-pattern"><a class="anchor" href="#editing-procedures-solution-pattern"></a>Editing procedures of a Red Hat Managed Integration Solution Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A procedure is a set of steps that you perform to complete a task or subtask.</p>
+</div>
+<div class="paragraph">
+<p>Write procedures using AsciiDoc numbered lists.
+Prepend each step with a dot (.) to create a simple numbered list.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have created a repository using the Solution Pattern template.</p>
+</li>
+<li>
+<p>You have added the Solution Pattern repository to your cluster as described in <a href="#adding-solution-patterns">Adding Solution Patterns to your Managed Integration cluster</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Procedure</div>
+<p>To edit a procedure in the template respository:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Edit the <code>walkthroughs/1-template-walkthrough/walkthrough.adoc</code> file.</p>
+</li>
+<li>
+<p>Edit the numbered list:</p>
+<div class="listingblock">
+<div class="content">
+<pre>. First step
+. Second step
+. Third step</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Save, commit, and push your changes.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To see your changes in Solution Explorer, refresh Solution explorer by clicking the gear icon followed by <strong>Save</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="editing-resources-solution-pattern"><a class="anchor" href="#editing-resources-solution-pattern"></a>Editing resources for a Red Hat Managed Integration Solution Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Solution Explorer displays information and links on the right side pane in Solution Explorer. You can add Solution Pattern resources by using block attributes. You can only define Solution Pattern resources in the overview section.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Setting <code>serviceName</code> is optional.</p>
+</li>
+<li>
+<p>If <code>serviceName</code> is set to the name of a Red Hat Middleware service, an icon indicating the service status is displayed next to the resource.</p>
+</li>
+<li>
+<p>For a list of default services, see <a href="https://github.com/integr8ly/tutorial-web-app/blob/master/src/common/serviceInstanceHelpers.js">the value for DEFAULT_SERVICES</a>.</p>
+</li>
+<li>
+<p>Setting the <code>window="_blank"</code> parameter for a Solution Pattern resource link is also optional, but ensures that the target of the link displays in a separate browser tab.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have created a repository using the Solution Patterns template.</p>
+</li>
+<li>
+<p>You have added the Solution Pattern repository to your cluster as described in <a href="#adding-solution-patterns">Adding Solution Patterns to your Managed Integration cluster</a>.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Edit the <code>walkthroughs/1-template-walkthrough/walkthrough.adoc</code> file.</p>
+</li>
+<li>
+<p>Add Solution Pattern resources using block attributes to the end of the overview section, for example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">[type=walkthroughResource,serviceName=openshift]
+.OpenShift
+****
+* link:{openshift-host}[Openshift Console, window="_blank"]
+****</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Save, commit, and push your changes.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To see your changes in Solution Explorer, refresh Solution explorer by clicking the gear icon followed by <strong>Save</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="editing-task-resources-solution-pattern"><a class="anchor" href="#editing-task-resources-solution-pattern"></a>Editing task resources for a Red Hat Managed Integration Solution Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Solution Explorer displays helpful information and links on the right side panel that are specific to a task.
+Solution Pattern resources are displayed for every task.
+Task resources typically change as you navigate the Solution Pattern.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have created a repository using the Solution Pattern template.</p>
+</li>
+<li>
+<p>You have added the Solution Pattern repository to your cluster as described in <a href="#adding-solution-patterns">Adding Solution Patterns to your Managed Integration cluster</a>.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Edit the <code>walkthroughs/1-template-walkthrough/walkthrough.adoc</code> file.</p>
+</li>
+<li>
+<p>At the end of any task section, add the following:</p>
+<div class="listingblock">
+<div class="content">
+<pre>[type=taskResource]
+.Useful links
+****
+* link:https://google.com[Task related link]
+****</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Save, commit, and push your changes.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To see your changes in Solution Explorer, refresh Solution explorer by clicking the gear icon followed by <strong>Save</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="adding-verifications-solution-pattern"><a class="anchor" href="#adding-verifications-solution-pattern"></a>Adding verifications to a Red Hat Managed Integration Solution Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Verifications are interactive elements in a Solution Pattern that confirm whether a user has successfully completed a procedure. They are questions presented to the user, which can be answered with either a <code>Yes</code> or <code>No</code> response.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have created a repository using the Solution Pattern template.</p>
+</li>
+<li>
+<p>You have added the Solution Pattern repository to your cluster as described in <a href="#adding-solution-patterns">Adding Solution Patterns to your Managed Integration cluster</a>.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Edit the <code>walkthroughs/1-template-walkthrough/walkthrough.adoc</code> file.</p>
+</li>
+<li>
+<p>At the end of the procedure section following the numbered list, add:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">[type=verification]
+Check that the dashboard of service X reports no errors.</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add the following block for users that answer the question with <code>No</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">[type=verificationFail]
+Try turning it off and on again.</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Save, commit, and push your changes.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To see your changes in Solution Explorer, refresh Solution explorer by clicking the gear icon followed by <strong>Save</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="adding-attributes-solution-pattern"><a class="anchor" href="#adding-attributes-solution-pattern"></a>Adding attributes to a Red Hat Managed Integration Solution Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Attributes enable you to use variables in your Solution Pattern. The syntax for using attributes is <code>{&lt;attribute name&gt;}</code>. Solution Patterns have access to predefined attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Access a Middleware service defined route: <code>{route-&lt;route name&gt;-host}</code></p>
+</li>
+<li>
+<p>AMQ Online Broker URL: <code>{enmasse-broker-url}</code></p>
+</li>
+<li>
+<p>AMQ Online Credential Username: <code>{enmasse-credentials-username}</code></p>
+</li>
+<li>
+<p>AMQ Online Credential Password: <code>{enmasse-credentials-password}</code></p>
+</li>
+<li>
+<p>AMQ Online URL: <code>{enmasse-url}</code>.</p>
+</li>
+<li>
+<p>CodeReady Workspaces URL: <code>{che-url}</code>.</p>
+</li>
+<li>
+<p>API Management URL: <code>{api-management-url}</code></p>
+</li>
+<li>
+<p>Fuse URL: <code>{fuse-url}</code></p>
+</li>
+<li>
+<p>Launcher URL: <code>{launcher-url}</code></p>
+</li>
+<li>
+<p>OpenShift console: <code>{openshift-host}</code></p>
+</li>
+<li>
+<p>OpenShift app host: <code>{openshift-app-host}</code></p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have created a repository using the Solution Pattern template.</p>
+</li>
+<li>
+<p>You have added the Solution Pattern repository to your cluster as described in <a href="#adding-solution-patterns">Adding Solution Patterns to your Managed Integration cluster</a>.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Edit the <code>walkthroughs/1-template-walkthrough/walkthrough.adoc</code> file.</p>
+</li>
+<li>
+<p>Add another step and include the attribute value:</p>
+<div class="listingblock">
+<div class="content">
+<pre>. Log in to the link:{openshift-url}[Red Hat OpenShift Console].</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Save, commit, and push your changes.</p>
+</li>
+<li>
+<p>Redeploy the Solution Explorer:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click the gear icon in the top right to display the <strong>Application settings</strong> screen.</p>
+</li>
+<li>
+<p>Click Save to trigger a redeployment of the Solution Explorer app.</p>
+</li>
+<li>
+<p>When the deployment is complete, refresh your browser.</p>
+</li>
+<li>
+<p>Navigate to the <strong>Solution Patterns</strong> tab to see the updated content.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="defining-metadata-solution-pattern-repository"><a class="anchor" href="#defining-metadata-solution-pattern-repository"></a>Define metadata for your Solution Pattern repository</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, the Solution Patterns from a repository are displayed in the Solution Explorer with a title corresponding to your repository name. You can add a <code>walkthroughs-config.json</code> file with the following content if, for example, you want to title the group <code>My Solution Patterns</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "prettyName": "My Solution Patterns"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This site was built using <a href="http://docs.antora.org">Antora</a> .</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

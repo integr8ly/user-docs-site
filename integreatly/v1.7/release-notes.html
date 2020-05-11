@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Release Notes for Managed Integration 1.7 :: Integreatly Docs Site</title>
+    <link rel="canonical" href="https://integr8ly.github.io/user-docs-site/integreatly/v1.7/release-notes.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://integr8ly.github.io/user-docs-site">Integreatly Docs Site</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/"><img src="https://avatars1.githubusercontent.com/u/41683098?s=80&v=4"</a>        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://github.com/integr8ly"> </a>
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+                  </div>
+        <div class="navbar-item">
+         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="integreatly" data-version="v1.7">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Integreatly</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">User Documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="getting-started.html">Getting Started</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="release-notes.html">Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Integreatly</span>
+    <span class="version">v1.7</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Data Sync</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../data-sync/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Integreatly</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../index.html">master</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">v1.7</a>
+        </li>
+        <li class="version">
+          <a href="../v1.6/index.html">v1.6</a>
+        </li>
+        <li class="version">
+          <a href="../v1.5/index.html">v1.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Push Notifications</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../push/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Integreatly</a></li>
+    <li><a href="index.html">User Documentation</a></li>
+    <li><a href="release-notes.html">Release Notes</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">v1.7</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../index.html">master</a>
+    <a class="version is-current" href="release-notes.html">v1.7</a>
+    <a class="version" href="../v1.6/release-notes.html">v1.6</a>
+    <a class="version" href="../v1.5/release-notes.html">v1.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/integr8ly/user-documentation/edit/v1.7/modules/ROOT/pages/release-notes.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Release Notes for Managed Integration 1.7</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>These release notes list the components of Red Hat Managed Integration 1.7.0, as well as known and fixed issues in this release.</p>
+</div>
+<div class="paragraph">
+<p>When a Managed Integration patch or upgrade is available, you are notified by email and prompted to create an upgrade schedule.
+When prompted, see these Release Notes for details regarding changes to your cluster.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Currently, technical preview features are not enabled by default in Managed Integration clusters. For example, the Internet of Things (IoT) feature of AMQ Online is not enabled. Any exceptions are labeled in the Solution Explorer.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rn-versions-ref"><a class="anchor" href="#rn-versions-ref"></a>Versions of Components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Red Hat Managed Integration 1.7 includes the following software versions:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Component</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Documentation</strong></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Red Hat Fuse Online</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://access.redhat.com/documentation/en-us/red_hat_fuse/7.6/">7.6</a><br>
+(Click Fuse Online Category)</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Red Hat AMQ Online</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.6">1.4</a><br>
+(Click AMQ Online Category)</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Red Hat 3scale API Management</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.8/">2.8</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Red Hat CodeReady Workspaces for OpenShift</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.0/">2.0</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Red Hat Single Sign-On</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/">7.3</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rn-fixed-issues-ref"><a class="anchor" href="#rn-fixed-issues-ref"></a>Fixed Issues</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following issue is resolved in Red Hat Managed Integration 1.7.0:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The address space messaging endpoint in Managed Integration supported TLS 1.0 and TLS 1.1, which are weak cipher suites. In this release, only TLS 1.2 is supported.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rn-known-issues-ref"><a class="anchor" href="#rn-known-issues-ref"></a>Known issues</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section lists known issues with  Red Hat Managed Integration 1.7.0:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In the <em>Managing and protecting APIs using API management</em> Solution Pattern, users must have administrator privileges to create a product in 3scale.</p>
+</li>
+<li>
+<p>The <code>customer-admin</code> user cannot prevent any user with access to the Solution Explorer from changing the Solution Pattern subscription settings. Any user with access to the Solution Explorer can determine which Solution Patterns are available in a cluster.</p>
+</li>
+<li>
+<p>The following Solution Pattern is not available in this release:</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><em>Low-code API development and SaaS integration</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Ignore references to this Solution Pattern in the documentation.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rn-deprecated-ref"><a class="anchor" href="#rn-deprecated-ref"></a>Deprecated features</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Support for TLS 1.0 and TLS 1.1 is removed from Red Hat Managed Integration. Only TLS 1.2 is supported in this release.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rn-new-and-changed-ref"><a class="anchor" href="#rn-new-and-changed-ref"></a>New and changed features</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>CodeReady Workspaces is upgraded to 2.0. Existing workspaces are not compatible with this version of CodeReady Workspaces.</p>
+<div class="paragraph">
+<p>Red Hat recommends that you recreate any existing workspaces using CodeReady Workspaces 2.0.</p>
+</div>
+</li>
+<li>
+<p>You can now configure AMQ Online.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>If you plan to use AMQ Online in Managed Integration, you need to create an AMQ Online configuration for production.
+You must edit and apply YAML files using the command line (CLI) tools to configure AMQ Online.</p>
+</div>
+<div class="paragraph">
+<p>This section provides general guidance on configuring AMQ Online for production usage in Managed Integration.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You are a cluster administrator with the OpenShift CLI (<code>oc</code>) installed locally.</p>
+</li>
+<li>
+<p>You have experience with configuring AMQ Online.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Configure AMQ Online in Managed Integration as described in <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.6/html-single/installing_and_managing_amq_online_on_openshift/index#configuring-messaging">Configuring AMQ Online</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The name of the AMQ Online project in your cluster is <code>enmasse</code>.</p>
+</li>
+<li>
+<p>You must log in as <code>customer-admin</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Configure your address space to use an external authentication service as shown in the <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.6/html-single/using_amq_online_on_openshift/index#ref-address-space-example-external-auth-service-override-messaging">address space example using an external authentication service</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The authentication services are configured by the AMQ Online service operator and are specified when creating an address space.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This site was built using <a href="http://docs.antora.org">Antora</a> .</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

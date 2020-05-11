@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Getting Started with Red Hat Managed Integration 2 :: Integreatly Docs Site</title>
+    <link rel="canonical" href="https://integr8ly.github.io/user-docs-site/integreatly/getting-started/master.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://integr8ly.github.io/user-docs-site">Integreatly Docs Site</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/"><img src="https://avatars1.githubusercontent.com/u/41683098?s=80&v=4"</a>        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://github.com/integr8ly"> </a>
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+                  </div>
+        <div class="navbar-item">
+         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="integreatly" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Integreatly</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">User Documentation</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Integreatly</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Data Sync</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../data-sync/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Integreatly</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../v1.7/index.html">v1.7</a>
+        </li>
+        <li class="version">
+          <a href="../v1.6/index.html">v1.6</a>
+        </li>
+        <li class="version">
+          <a href="../v1.5/index.html">v1.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Push Notifications</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../push/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Integreatly</a></li>
+    <li><a href="master.html">Getting Started with Red Hat Managed Integration 2</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">master</button>
+  <div class="version-menu">
+    <a class="version is-current" href="master.html">master</a>
+    <a class="version is-missing" href="../v1.7/index.html">v1.7</a>
+    <a class="version is-missing" href="../v1.6/index.html">v1.6</a>
+    <a class="version is-missing" href="../v1.5/index.html">v1.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/integr8ly/user-documentation/edit/master/modules/ROOT/pages/getting-started/master.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Getting Started with Red Hat Managed Integration 2</h1>
+<div class="sect1">
+<h2 id="introduction-to-rhmi"><a class="anchor" href="#introduction-to-rhmi"></a>Introduction to Red Hat Managed Integration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Red Hat Managed Integration is a platform for developing and deploying enterprise integration solutions.
+It is hosted and managed by Red Hat so you can focus on building applications, not infrastructure.</p>
+</div>
+<div class="paragraph">
+<p>Managed Integration enables your team to develop, build, and deploy enterprise integration solutions on an OpenShift Dedicated cluster managed by Red Hat.</p>
+</div>
+<div class="paragraph">
+<p>Managed Integration provides a simplified cloud-native experience and includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Solution Explorer: A web-based UI with single sign-on access to all applications.</p>
+</li>
+<li>
+<p>Solution Patterns: Step-by-step instructions and best practices for common connectivity and application development tasks.</p>
+</li>
+<li>
+<p>Applications: Pre-installed infrastructure components are configured for optimal performance.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All of the applications and services provided by Managed Integration are protected by your identity provider.</p>
+</div>
+<div class="paragraph">
+<p>Red Hat Managed Integration includes the following roles:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cluster administrators are created during the onboarding process and have the highest level of access to a cluster.
+To create a cluster administrator open a support case on the <a href="https://access.redhat.com/support/">Red Hat Customer Portal</a>.</p>
+</li>
+<li>
+<p>Developers have access to the applications in the cluster and can deploy containerized applications.
+Typically, developers start by <a href="#creating-using-solution-patterns_getting-started">Creating cloud-native, integrated applications using Solution Patterns</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Managed Integration includes a managed instance of Red Hat Single Sign-On to enable you to protect any applications you deploy on your cluster.
+This application is labeled <strong>Customer Application SSO instance</strong> in the Solution Explorer.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Do not delete the <code>admin</code> user in the Customer Application SSO instance. This user is required by Red Hat to manage the instance.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction-to-solution-explorer"><a class="anchor" href="#introduction-to-solution-explorer"></a>Introduction to Solution Explorer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Solution Explorer is a web-based UI with single sign-on access to all the applications and services available in your Managed Integration cluster:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>OpenShift</strong>, the OpenShift cluster console.</p>
+</li>
+<li>
+<p><strong>API Designer</strong>,  the Apicurito RESTful API visual designer.</p>
+</li>
+<li>
+<p><strong>Red Hat 3scale API Management</strong>, a platform that provides RESTful API Management.</p>
+</li>
+<li>
+<p><strong>Red Hat AMQ</strong>, a fast, lightweight, and secure messaging solution for Internet-scale applications.</p>
+</li>
+<li>
+<p><strong>Red Hat CodeReady Workspaces</strong>, a developer workspace server and cloud IDE.</p>
+</li>
+<li>
+<p><strong>Red Hat Fuse Online</strong>, a facility to obtain data from an application or service, operate on that data, and then send the data to another application or service without writing code.</p>
+</li>
+<li>
+<p><strong>Push Notifications</strong>, a service to push notifications to Android and iOS devices.</p>
+</li>
+<li>
+<p><strong>Red Hat Single Sign-On</strong>, a single sign-on solution for web apps and RESTful web services.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Solution Explorer also provides <a href="#introduction-to-solution-patterns">Solution Patterns</a> that provide step-by-step instructions and best practices for common connectivity and application development tasks that create new cloud-native, integrated applications.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction-to-solution-patterns"><a class="anchor" href="#introduction-to-solution-patterns"></a>Introduction to Solution Patterns</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following Solution Patterns are included within your Managed Integration cluster. They provide step-by-step instructions and best practices for common connectivity and application development tasks:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect applications using asynchronous messaging.</p>
+</li>
+<li>
+<p>Protect applications using single sign-on.</p>
+</li>
+<li>
+<p>Implement Low-code API development and SaaS integration.</p>
+</li>
+<li>
+<p>Protect APIs using 3scale API Management Platform.</p>
+</li>
+<li>
+<p>Add Data Sync to your application with GraphQL.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>To learn more about using Solution Patterns, see <a href="#creating-using-solution-patterns_getting-started">Creating cloud-native, integrated applications using Solution Patterns</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuring-new-cluster_getting-started"><a class="anchor" href="#configuring-new-cluster_getting-started"></a>Configuring a new Managed Integration cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A cluster administrator must configure the Managed Integration cluster before developers can start creating cloud-native, integrated applications.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the Solution Explorer. The URL for the Solution Explorer is included with the email Red Hat sends you when your cluster becomes available.</p>
+</li>
+<li>
+<p>Share the Solution Explorer URL with the developers in your organization.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Depending on the applications that your team plans to use, you might need to configure a GitHub OAuth app for Red Hat CodeReady Workspaces and give developers administrative privileges in Red Hat 3scale API Management.</p>
+</div>
+<div class="sect2">
+<h3 id="giving-developers-admin-3scale_getting-started"><a class="anchor" href="#giving-developers-admin-3scale_getting-started"></a>Enabling developers to create API products in Red Hat 3scale API Management</h3>
+<div class="paragraph">
+<p>A cluster administrator must give developers administrative privileges in 3scale before developers can create or edit API products.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisite</div>
+<ul>
+<li>
+<p>You are a cluster administrator.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the Solution Explorer.</p>
+</li>
+<li>
+<p>Navigate to the 3scale console.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When navigating to 3scale, choose <strong>Authenticate through Red Hat Single Sign-On</strong> when prompted to <strong>Log in to your Account</strong>.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Navigate to <strong>Account Settings</strong> by clicking the gear icon in the top right of the page.</p>
+</li>
+<li>
+<p>Expand <strong>Users</strong> from the left hand menu and choose <strong>Listing</strong>.</p>
+</li>
+<li>
+<p>Select the developer username you want to change.</p>
+</li>
+<li>
+<p>Select the <strong>Admin (full access)</strong> option from the <strong>Role</strong> menu.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Additional resources</div>
+<p>See <a href="https://access.redhat.com/documentation/en-us/red_hat_managed_integration/2/html-single//administration_guide_for_red_hat_managed_integration_2/">Administration Guide</a> for more information about 3scale user management in Red Hat Managed Integration.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuring-github-oauth-for-codeready-workspaces_getting-started"><a class="anchor" href="#configuring-github-oauth-for-codeready-workspaces_getting-started"></a>Configuring GitHub OAuth for CodeReady Workspaces</h3>
+<div class="paragraph">
+<p>Red Hat Managed Integration provides a full developer workspace server and cloud IDE with CodeReady Workspaces, allowing you to pull and push to GitHub projects. You must configure a GitHub OAuth app before developers can create a repository, pull, and push GitHub projects.
+The GitHub OAuth app allows users to import projects into CodeReady Workspaces by using SSH addresses (<code>git@</code>). Users can then push to repositories and use the pull request panel.</p>
+</div>
+<div class="paragraph">
+<p>This procedure enables automatic SSH key upload to GitHub.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You must have prior experience using GitHub.</p>
+</li>
+<li>
+<p>You are a cluster administrator.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Register an application on GitHub:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To add a new application, log in to GitHub and go to OAuth applications in your developer settings. Click <a href="https://github.com/settings/profile">Settings</a> &#8594;
+<a href="https://github.com/settings/apps">Developer settings</a> &#8594;
+<a href="https://github.com/settings/developers">OAuth Apps</a> &#8594;
+<a href="https://github.com/settings/applications/new">Register a new OAuth application</a>.</p>
+</li>
+<li>
+<p>For GitHub Enterprise, go to your GitHub Enterprise homepage and then click
+<strong>Settings &#8594; Developer settings &#8594; Register a new application</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter an application name, for example, <code>CodeReady Workspaces</code>.</p>
+</li>
+<li>
+<p>For the homepage URL, enter the CodeReady Workspaces URL.</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://codeready-redhat-rhmi-codeready-workspaces.apps.&lt;cluster-suffix&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where &lt;cluster-suffix&gt; is the unique sub-domain for your cluster.
+For example, example.u7y2.s1.openshift.com</p>
+</div>
+</li>
+<li>
+<p>Enter the authorization callback URL:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://keycloak-edge-redhat-rhmi-rhsso.apps.&lt;cluster-suffix&gt;/auth/realms/openshift/broker/github/endpoint</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where &lt;cluster-suffix&gt; is the unique sub-domain for your cluster.
+For example, example.u7y2.s1.openshift.com</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Register application</strong>.</p>
+</li>
+<li>
+<p>Note the GitHub <strong>Client ID</strong> and GitHub <strong>Client Secret</strong>. You require these values later in the procedure.</p>
+</li>
+<li>
+<p>Log in to the OpenShift console as a cluster administrator.</p>
+</li>
+<li>
+<p>Navigate to the following URL in your browser:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://console-openshift-console.apps.&lt;cluster-suffix&gt;/k8s/ns/redhat-rhmi-operator/secrets/github-oauth-secret</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where &lt;cluster-suffix&gt; is the unique sub-domain for your cluster.
+For example, example.u7y2.s1.openshift.com</p>
+</div>
+</li>
+<li>
+<p>Select the <strong>Edit Secret</strong> option from the <strong>Actions</strong> menu.</p>
+</li>
+<li>
+<p>Enter the GitHub Client ID and Client Secret that you previously noted:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Enter the GitHub Client ID for the value of <strong>Client ID</strong>.</p>
+</li>
+<li>
+<p>Enter the GitHub Client Secret for the value of <strong>Secret</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>To validate, request that a developer creates a workspace and connects to GitHub:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Log in to Solution Explorer.</p>
+</li>
+<li>
+<p>Navigate to CodeReady Workspaces.</p>
+</li>
+<li>
+<p>Create a workspace as described in <a href="https://access.redhat.com/documentation/en-us/red_hat_codeready_workspaces/2.0/html-single/end-user_guide/index#creating-and-configuring-a-new-codeready-workspaces-2.0-workspace">Creating and configuring a new CodeReady Workspaces 2.0 workspace</a>.</p>
+</li>
+<li>
+<p>Click <strong>Add or Import Project</strong> &#8594; <strong>GitHub</strong> &#8594; <strong>Connect your GitHub account</strong> &#8594; <strong>Authorize</strong>.</p>
+</li>
+<li>
+<p>Check that a list of projects is displayed in the Import Projects panel. If projects are not displayed, verify that you followed each step in this procedure.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>See the <a href="https://access.redhat.com/documentation/en-us/red_hat_managed_integration/2/html-single/administration_guide_for_red_hat_managed_integration_2/">Managed Integration Administration Guide</a> for more information on administering your cluster.</p>
+</li>
+<li>
+<p>As a cluster administrator you can perform all the tasks described in <a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html-single/administering_a_cluster/index">Administering an OpenShift Dedicated cluster</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This release of Red Hat Managed Integration does not support the tasks described in the <a href="https://access.redhat.com/documentation/en-us/openshift_dedicated/4/html-single/getting_started/index">Getting started with OpenShift Dedicated 4</a>.  If you would like to request a change to your cluster that is described in that guide, open a support case on the <a href="https://access.redhat.com/support/">Red Hat Customer Portal</a>.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>A cluster administrator is also an administrator of 3scale and can perform the tasks described in the <a href="https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.8/html/admin_portal_guide/index">Admin Portal Guide</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="creating-using-solution-patterns_getting-started"><a class="anchor" href="#creating-using-solution-patterns_getting-started"></a>Creating cloud-native, integrated applications using Solution Patterns</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As a developer with access to a Managed Integration cluster, you can learn about developing cloud-native, integrated applications using Solution Patterns.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You are a developer.</p>
+</li>
+<li>
+<p>You have the Solution Explorer URL.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the Solution Explorer.</p>
+</li>
+<li>
+<p>Select the <strong>All Solution Patterns</strong> tab. The default Solution Patterns are displayed.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+See <a href="https://access.redhat.com/documentation/en-us/red_hat_managed_integration/2/html-single/developer_guide_for_red_hat_managed_integration_2/index#adding-solution-patterns">Adding Solution Patterns</a> for information about how to subscribe your cluster to a Git repository that contains more Solution Patterns.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Perform the <strong>1 - Connecting applications using asynchronous messaging</strong> Solution Pattern to learn about using AMQ Online and Fuse Online.</p>
+</li>
+<li>
+<p>Perform the <strong>2 - Protecting applications using single sign-on</strong> Solution Pattern to learn about using the Customer Application SSO instance to protect end-user applications.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You must complete the <strong>1 - Connecting applications using asynchronous messaging</strong> Solution Pattern before performing this Solution Pattern.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Perform the <strong>3 - Low-code API development and SaaS integration</strong> Solution Pattern to learn more about using Fuse Online with external services.</p>
+</li>
+<li>
+<p>Perform the <strong>4 - Protecting APIs using 3scale API Management Platform</strong> Solution Pattern to learn about protecting APIs with Red Hat 3scale API Management.
+When navigating to 3scale, choose <strong>Authenticate through Red Hat Single Sign-On</strong> when prompted to <strong>Log in to your Account</strong>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To complete this Solution Pattern, a cluster administrator must give you 3scale administrative privileges as described in the <a href="https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.8/html/admin_portal_guide/inviting-users-managing-rights#give_new_users_rights">3scale Admin Portal Guide</a>.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Perform the <strong>5 - Adding Data Sync to your application with GraphQL</strong> Solution Pattern to learn about building a Node.js application using a GraphQL API. This Solution Pattern also shows how to integrate applications with Red Hat Single-Sign On and AMQ Online.</p>
+</li>
+<li>
+<p>If you do not intend to use the resources created by completing Solution Patterns, delete those resources to preserve cluster capacity.
+For example:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Delete OpenShift projects.</p>
+</li>
+<li>
+<p>Delete Fuse Online integrations.</p>
+</li>
+<li>
+<p>Delete AMQ address spaces.</p>
+</li>
+<li>
+<p>Delete 3scale products.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>See the <a href="https://access.redhat.com/documentation/en-us/red_hat_managed_integration/2/html-single/developer_guide_for_red_hat_managed_integration_2">Developer Guide</a> for more information about what developers can do in a cluster.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This site was built using <a href="http://docs.antora.org">Antora</a> .</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

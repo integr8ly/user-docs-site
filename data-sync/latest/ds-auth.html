@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Integreatly Docs Site</title>
+    <link rel="canonical" href="https://integr8ly.github.io/user-docs-site/data-sync/latest/ds-auth.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://integr8ly.github.io/user-docs-site">Integreatly Docs Site</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/"><img src="https://avatars1.githubusercontent.com/u/41683098?s=80&v=4"</a>        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://github.com/integr8ly"> </a>
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+                  </div>
+        <div class="navbar-item">
+         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="data-sync" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Data Sync</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Data Sync</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-getting-started.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-query.html">Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-mutation.html">Mutations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-offline.html">Offline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-realtime.html">Subscriptions</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="ds-auth.html">Authz</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-conflict.html">Conflict Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-files.html">File Upload</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-openshift.html">Running on Integreatly</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Data Sync</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Data Sync</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Integreatly</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integreatly/index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.7/index.html">v1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.6/index.html">v1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.5/index.html">v1.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Push Notifications</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../push/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../integreatly/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Data Sync</a></li>
+    <li><a href="ds-auth.html">Authz</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/aerogear/datasync/edit/master/docs/integreatly/modules/ROOT/pages/ds-auth.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 id="auth_{context}" class="sect0"><a class="anchor" href="#auth_{context}"></a>Supporting authentication and authorization in your mobile app</h1>
+<div class="sect1">
+<h2 id="sync-server-auth"><a class="anchor" href="#sync-server-auth"></a>Configuring your server for authentication and authorization using {idm-name}</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using the {keycloak-service} service and the <a href="https://www.npmjs.com/package/@aerogear/voyager-keycloak">@aerogear/voyager-keycloak</a> module, it is possible to add security to a Data Sync Server application.</p>
+</div>
+<div class="paragraph">
+<p>The <code>@aerogear/voyager-keycloak</code> module provides the following features out of the box:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Authentication - Ensure only authenticated users can access your server endpoints, including the main GraphQL endpoint.</p>
+</li>
+<li>
+<p>Authorization - Use the <code>@hasRole()</code> directive within the GraphQL schema to implement role based access control (RBAC) on the GraphQL level.</p>
+</li>
+<li>
+<p>Integration with GraphQL context - Use the <code>context</code> object within the GraphQL resolvers to access user credentials and several helper functions.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>There is a {idm-name} service available.</p>
+</li>
+<li>
+<p>You must add a valid <code>keycloak.json</code> config file to your project.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a client for your application in the Keycloak administration console.</p>
+</li>
+<li>
+<p>Click on the Installation tab.</p>
+</li>
+<li>
+<p>Select <strong>Keycloak OIDC JSON</strong> for Format option, and click <strong>Download</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_protecting_data_sync_server_using_idm_name"><a class="anchor" href="#_protecting_data_sync_server_using_idm_name"></a>Protecting Data Sync Server using {idm-name}</h3>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Import the <code>@aerogear/voyager-keycloak</code> module</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const { KeycloakSecurityService } = require('@aerogear/voyager-keycloak')</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Read the Keycloak config and pass it to initialise the <code>KeycloakSecurityService</code>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const keycloakConfig = JSON.parse(fs.readFileSync(path.resolve(__dirname, './path/to/keycloak.json')))
+const keycloakService = new KeycloakSecurityService(keycloakConfig)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use the <code>keycloakService</code> instance to protect your app:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const app = express()
+keycloakService.applyAuthMiddleware(app)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Configure the Voyager server so that the <code>keycloakService</code> is used as the security service:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const voyagerConfig = {
+  securityService: keycloakService
+}
+const server = VoyagerServer(apolloConfig, voyagerConfig)</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <a href="https://github.com/aerogear/voyager-server/blob/master/examples/keycloak">Keycloak Example Server Guide</a> has an example server based off the instructions above and shows all of the steps needed to get it running.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_the_hasrole_directive_in_a_schema"><a class="anchor" href="#_using_the_hasrole_directive_in_a_schema"></a>Using the hasRole directive in a schema</h3>
+<div class="paragraph">
+<p>The Voyager Keycloak module provides the <code>@hasRole</code> directive to define role based authorisation in your schema. The <code>@hasRole</code> directive is a special annotation that can be applied to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>fields</p>
+</li>
+<li>
+<p>queries</p>
+</li>
+<li>
+<p>mutations</p>
+</li>
+<li>
+<p>subscriptions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>@hasRole</code> usage is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@hasRole(role: String)</code></p>
+</li>
+<li>
+<p>Example - <code>@hasRole(role: "admin"])</code></p>
+</li>
+<li>
+<p>If the authenticated user has the role <code>admin</code> they will be authorized.</p>
+</li>
+<li>
+<p><code>@hasRole(role: [String])</code></p>
+</li>
+<li>
+<p>Example - <code>@hasRole(role: ["admin", "editor"])</code></p>
+</li>
+<li>
+<p>If the authenticated user has at least one of the roles in the list, they will be authorized.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The default behaviour is to check client roles. For example, <code>@hasRole(role: "admin")</code> will check that user has a client role called <code>admin</code>. <code>@hasRole(role: "realm:admin")</code> will check if that user has a realm role called <code>admin</code></p>
+</div>
+<div class="paragraph">
+<p>The syntax for checking a realm role is <code>@hasRole(role: "realm:&lt;role&gt;")</code>. For example, <code>@hasRole(role: "realm:admin")</code>. Using a list of roles, it is possible to check for both client and realm roles at the same time.</p>
+</div>
+<div class="paragraph">
+<div class="title">Example: Using the @hasRole Directive to Apply Role Based Authorization in a Schema</div>
+<p>The following example demonstrates how the <code>@hasRole</code> directive can be used to define role based authorization on various parts of a GraphQL schema. This example schema represents publishing an application like a news or blog website.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-graphql hljs" data-lang="graphql">type Post {
+  id: ID!
+  title: String!
+  author: Author!
+  content: String!
+  createdAt: Int!
+}
+
+type Author {
+  id: ID!
+  name: String!
+  posts: [Post]!
+  address: String! @hasRole(role: "admin")
+  age: Int! @hasRole(role: "admin")
+}
+
+type Query {
+  allPosts:[Post]!
+  getAuthor(id: ID!):Author!
+}
+
+type Mutation {
+  editPost:[Post]! @hasRole(role: ["editor", "admin"])
+  deletePost(id: ID!):[Post] @hasRole(role: "admin")
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are two types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Post</code> - An article or a blog post</p>
+</li>
+<li>
+<p><code>Author</code> - Represents the person that authored a Post</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are two queries:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>allPosts</code> - Returns a list of posts</p>
+</li>
+<li>
+<p><code>getAuthor</code> - Returns details about an Author</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are two mutations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editPost</code> - Edits an existing post</p>
+</li>
+<li>
+<p><code>deletePost</code> - Delete a post.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Role Based Authorization on Queries and Mutations</div>
+<p>In the example schema, the <code>@hasRole</code> directive has been applied to the <code>editPost</code> and <code>deletePost</code> mutations. The same can be done on queries.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only users with the roles <code>editor</code> and/or <code>admin</code> are allowed to perform the <code>editPost</code> mutation.</p>
+</li>
+<li>
+<p>Only users with the role <code>admin</code> are allowed to perform the <code>deletePost</code> mutation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This example shows how the <code>@hasRole</code> directive can be used on various queries and mutations.</p>
+</div>
+<div class="paragraph">
+<div class="title">Role Based Authorization on Fields</div>
+<p>In the example schema, the <code>Author</code> type has the fields <code>address</code> and <code>age</code> which both have <code>hasRole(role: "admin")</code> applied.</p>
+</div>
+<div class="paragraph">
+<p>This means that users without the role <code>admin</code> are not authorized to request these fields in any query or mutation.</p>
+</div>
+<div class="paragraph">
+<p>For example, non-admin users are allowed to run the <code>getAuthor</code> query, but cannot request the <code>address</code> or <code>age</code> fields.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="authentication-and-authorization-websockets-{context}"><a class="anchor" href="#authentication-and-authorization-websockets-{context}"></a>Authentication Over Websockets using {idm-name}</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Prerequisites:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#sync-server-auth">Configure Data Sync Server for Authentication and Authorization</a></p>
+</li>
+<li>
+<p><a href="ds-realtime.html#realtime-updates-{context}" class="page">Configuring Your Server for real-time updates</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This section describes how to implement authentication and authorization over websockets with {idm-name}. For more information on authentication over websockets, read Apollo&#8217;s <a href="https://www.apollographql.com/docs/apollo-server/features/subscriptions/#authentication-over-websocket">Authentication Over Websocket</a> documention.</p>
+</div>
+<div class="paragraph">
+<p>The Voyager Client supports adding token information to <code>connectionParams</code> that will be sent with the first WebSocket message. In the server, this token is used to authenticate the connection and to allow the subscription to proceeed. Read the section on <a href="#sync-js-client-auth">{idm-name} Authentication in Voyager Client</a> to ensure the {idm-name} token is sent to the server.</p>
+</div>
+<div class="paragraph">
+<p>In the server, <code>createSubscriptionServer</code> accepts a <code>SecurityService</code> instance in addition to the regular options that can be passed to a standard <code>SubscriptionServer</code>. The <code>KeycloakSecurityService</code> from <code>@aerogear/voyager-keycloak</code> is used to validate the {idm-name} token passed by the client in the initial WebSocket message.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const { createSubscriptionServer } = require('@aerogear/voyager-subscriptions')
+const { KeycloakSecurityService } = require('@aerogear/voyager-keycloak')
+const keycloakConfig = require('./keycloak.json') // typical Keycloak OIDC installation
+
+const apolloServer = VoyagerServer({
+  typeDefs,
+  resolvers
+})
+
+securityService = new KeycloakSecurityService(keycloakConfig)
+
+const app = express()
+
+keycloakService.applyAuthMiddleware(app)
+apolloServer.applyMiddleware({ app })
+
+const server = app.listen({ port }, () =&gt;
+  console.log(`🚀 Server ready at http://localhost:${port}${apolloServer.graphqlPath}`)
+
+  createSubscriptionServer({ schema: apolloServer.schema }, {
+    securityService,
+    server,
+    path: '/graphql'
+  })
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The example shows how the {idm-name} <code>securityService</code> is created and how it is passed into <code>createSubscriptionServer</code>. This enables {idm-name} authentication on all subscriptions.</p>
+</div>
+<div class="sect2">
+<h3 id="_idm_name_authorization_in_subscriptions"><a class="anchor" href="#_idm_name_authorization_in_subscriptions"></a>{idm-name} Authorization in Subscriptions</h3>
+<div class="paragraph">
+<p>The {idm-name} <code>securityService</code> will validate and parse the token sent by the client into a <a href="https://github.com/keycloak/keycloak-nodejs-connect/blob/master/middleware/auth-utils/token.js">Token Object</a>. This token is available in Subscription resolvers with <code>context.auth</code> and can be used to implement finer grained role based access control.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const resolvers = {
+  Subscription: {
+    taskAdded: {
+      subscribe: (obj, args, context, info) =&gt; {
+        const role = 'admin'
+        if (!context.auth.hasRole(role)) {
+          return new Error(`Access Denied - missing role ${role}`)
+        }
+        return pubSub.asyncIterator(TASK_ADDED)
+      }
+    },
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above example shows role based access control inside a subscription resolver. <code>context.auth</code> is a full <a href="https://github.com/keycloak/keycloak-nodejs-connect/blob/master/middleware/auth-utils/token.js">Keycloak Token Object</a> which means methods like <code>hasRealmRole</code> and <code>hasApplicationRole</code> are available.</p>
+</div>
+<div class="paragraph">
+<p>The user details can be accessed through <code>context.auth.content</code>. Here is an example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "jti": "dc1d6286-c572-43c1-99c7-4f36982b0e56",
+  "exp": 1561495720,
+  "nbf": 0,
+  "iat": 1561461830,
+  "iss": "http://localhost:8080/auth/realms/voyager-testing",
+  "aud": "voyager-testing-public",
+  "sub": "57e1dcda-990f-4cc2-8542-0d1f9aae302b",
+  "typ": "Bearer",
+  "azp": "voyager-testing-public",
+  "nonce": "552c3cba-a6c2-490a-9914-28784ba0e4bc",
+  "auth_time": 1561459720,
+  "session_state": "ed35e1b4-b43c-438f-b1a3-18b1be8c6307",
+  "acr": "0",
+  "allowed-origins": [
+    "*"
+  ],
+  "realm_access": {
+    "roles": [
+      "developer",
+      "uma_authorization"
+    ]
+  },
+  "resource_access": {
+    "voyager-testing-public": {
+      "roles": [
+        "developer"
+      ]
+    },
+    "account": {
+      "roles": [
+        "manage-account",
+        "manage-account-links",
+        "view-profile"
+      ]
+    }
+  },
+  "preferred_username": "developer"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Having access to the user details (e.g. <code>context.auth.content.sub</code> is the authenticated user&#8217;s ID) means it is possible to implement <a href="https://www.apollographql.com/docs/apollo-server/features/subscriptions/#subscription-filters">Subscription Filters</a> and to subscribe to more fine grained pubsub topics based off the user details.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="implementing-authentication-and-authorization-on-your-client"><a class="anchor" href="#implementing-authentication-and-authorization-on-your-client"></a>Implementing authentication and authorization on your client</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With Voyager Client, user information can be passed to a Data Sync server application in two ways, by using headers or by using tokens.</p>
+</div>
+<div class="paragraph">
+<p>Headers are used to authentication HTTP requests to the server, which are used for queries and mutations.</p>
+</div>
+<div class="paragraph">
+<p>Tokens are used to authenticate WebSocket connections, which are used for subscriptions.</p>
+</div>
+<div class="paragraph">
+<p>Both ways can be set by the <code>authContextProvider</code> configuration option. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">//get the token value from somewhere, for example the authentication service
+const token = "REPLACE_WITH_REAL_TOKEN";
+
+const config = {
+  ...
+  authContextProvider: function() {
+    return {
+      header: {
+        "Authorization": `Bearer ${token}`
+      },
+      token: token
+    }
+  },
+  ...
+};
+
+//create a new client</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For information about how to perform authentication and authorization on the server, see the <a href="#sync-server-auth">Server Authentication and Authorization Guide</a>.</p>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This site was built using <a href="http://docs.antora.org">Antora</a> .</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

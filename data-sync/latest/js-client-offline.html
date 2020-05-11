@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Supporting offline functionality in your mobile app :: Integreatly Docs Site</title>
+    <link rel="canonical" href="https://integr8ly.github.io/user-docs-site/data-sync/latest/js-client-offline.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://integr8ly.github.io/user-docs-site">Integreatly Docs Site</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/"><img src="https://avatars1.githubusercontent.com/u/41683098?s=80&v=4"</a>        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://github.com/integr8ly"> </a>
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+                  </div>
+        <div class="navbar-item">
+         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="data-sync" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Data Sync</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Data Sync</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-getting-started.html">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-query.html">Queries</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-mutation.html">Mutations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-offline.html">Offline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-realtime.html">Subscriptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-auth.html">Authz</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-conflict.html">Conflict Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-files.html">File Upload</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ds-openshift.html">Running on Integreatly</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Data Sync</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Data Sync</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Integreatly</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integreatly/index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.7/index.html">v1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.6/index.html">v1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.5/index.html">v1.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Push Notifications</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../push/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../integreatly/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Data Sync</a></li>
+    <li><a href="js-client-offline.html">Supporting offline functionality in your mobile app</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/aerogear/datasync/edit/master/docs/integreatly/modules/ROOT/pages/js-client-offline.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Supporting offline functionality in your mobile app</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_about_offline_functionality">About offline functionality</a></li>
+<li><a href="#setup-offline-client">Creating an offline client</a></li>
+<li><a href="#_detecting_mutations_while_offline">Detecting mutations while offline</a></li>
+<li><a href="#_performing_mutations_while_offline">Performing mutations while offline</a>
+<ul class="sectlevel1">
+<li><a href="#_supporting_app_restarts_while_offline">Supporting app restarts while offline</a></li>
+<li><a href="#_ensuring_specified_mutations_are_performed_online_only">Ensuring specified mutations are performed online only</a></li>
+<li><a href="#sync-client-offline-queue-listener">Listening for events</a></li>
+<li><a href="#cache-update-helpers">Using cache update helpers</a>
+<ul class="sectlevel2">
+<li><a href="#_using_cache_update_helpers_for_mutations">Using cache update helpers for mutations</a></li>
+<li><a href="#_using_cache_update_helpers_for_subscriptions">Using cache update helpers for subscriptions</a></li>
+<li><a href="#_using_cache_update_helpers_for_multiple_subscriptions">Using cache update helpers for multiple subscriptions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_detecting_network_status">Detecting Network Status</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_about_offline_functionality"><a class="anchor" href="#_about_offline_functionality"></a>About offline functionality</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Your mobile app can run offline and allows users to query and create mutations using the @aerogear/voyager-client module.</p>
+</div>
+<div class="paragraph">
+<p>All queries are performed against the cache, a mutation store (or offline store) supports offline mutations.</p>
+</div>
+<div class="paragraph">
+<p>If a client goes offline for a long period of time, the mutation store negotiates local updates with the server using conflict resolution strategies.</p>
+</div>
+<div class="paragraph">
+<p>When a client comes online again, the mutations are replicated back to the server.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/RHMDS_Data_Sync_35_0919_online-offline.png" alt="RHMDS Data Sync 35 0919 online offline">
+</div>
+</div>
+<div class="paragraph">
+<p>Developers can attach listeners to get notifications about updates applied on the server or failing, and take appropriate actions.</p>
+</div>
+<div class="paragraph">
+<div class="title">Mutations and Local Cache</div>
+<p>By default queries and the results of mutations are cached.</p>
+</div>
+<div class="paragraph">
+<p>Mutations can change query results, make sure to call the <code>refetchQueries</code> or <code>update</code> options of the <code>mutate</code> method to ensure the local cache is kept up to date.</p>
+</div>
+<div class="paragraph">
+<p>The @aerogear/voyager-client module also provides cache helper functions to reduce the amount of code required, as described in <a href="#cache-update-helpers">Using cache update helpers</a>.</p>
+</div>
+<div class="paragraph">
+<p>For more information about <code>mutate</code> and the options available, see <a href="https://www.apollographql.com/docs/react/data/mutations/">Apollo&#8217;s document about mutations</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setup-offline-client"><a class="anchor" href="#setup-offline-client"></a>Creating an offline client</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The @aerogear/voyager-client module provides an <code>OfflineClient</code> class which exposes the following functionality:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>direct access to the mutation store</p>
+</li>
+<li>
+<p>allows you to register multiple offline event listeners as described in <a href="#sync-client-offline-queue-listener">Listening for events</a></p>
+</li>
+<li>
+<p>automatically ensures the mobile app&#8217;s local cache is kept up to date. This client automatically generates <code>update</code> methods as described in <a href="#cache-update-helpers">Using cache update helpers</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To create the client:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">import { OfflineClient } from '@aerogear/voyager-client';
+
+let config = {
+  httpUrl: "http://localhost:4000/graphql",
+  wsUrl: "ws://localhost:4000/graphql",
+}
+
+async function setupClient() {
+
+  let offlineClient = new OfflineClient(config);
+  let client = await offlineClient.init();
+}
+
+setupClient();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This client can replace an Apollo client as it supports the same functionality.</p>
+</div>
+</div>
+</div>
+<h1 id="_detecting_mutations_while_offline" class="sect0"><a class="anchor" href="#_detecting_mutations_while_offline"></a>Detecting mutations while offline</h1>
+<div class="paragraph">
+<p>If a mutation occurs while the device is offline, the <code>client.mutate</code> function:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>returns immediately</p>
+</li>
+<li>
+<p>returns a promise with an error</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can check the <em>error</em> object to isolate errors related to the offline state.
+Invoking the <code>watchOfflineChange()</code> method on an <em>error</em> object, watches for when an offline change is synced with the server, and sends a notification when triggered.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">  client.mutate(...).catch((error)=&gt; {
+    // 1. Detect if this was an offline error
+   if(error.networkError &amp;&amp; error.networkError.offline){
+     const offlineError: OfflineError =  error.networkError;
+     // 2. We can still track when offline change is going to be replicated.
+     offlineError.watchOfflineChange().then(...)
+   }
+  });</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In addition to watching individual mutations, you can add a global offline listener when creating a client as described in <a href="#sync-client-offline-queue-listener">Listening for events</a>.
+</td>
+</tr>
+</table>
+</div>
+<h1 id="_performing_mutations_while_offline" class="sect0"><a class="anchor" href="#_performing_mutations_while_offline"></a>Performing mutations while offline</h1>
+<div class="paragraph">
+<p>The @aerogear/voyager-client module provides an <code>offlineMutate</code> method which extends Apollo&#8217;s mutate function with some extra functionality.
+This includes automatically adding some fields to each operation&#8217;s context.</p>
+</div>
+<div class="paragraph">
+<p>To set up the offline client, see <a href="#setup-offline-client">Creating an offline client</a>.</p>
+</div>
+<div class="paragraph">
+<p>Once set up is complete, <code>offlineMutate</code> is then available to use.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>offlineMutate</code> method accepts the same parameters as <code>mutate</code> with some additional optional parameters also available.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">  const { CacheOperation } = require('@aerogear/voyager-client');
+
+  client.offlineMutate({
+    ...
+    updateQuery: GET_TASKS, <i class="conum" data-value="1"></i><b>(1)</b>
+    operationType: CacheOperation.ADD, <i class="conum" data-value="2"></i><b>(2)</b>
+    idField: "id", <i class="conum" data-value="3"></i><b>(3)</b>
+    returnType: "Task" <i class="conum" data-value="4"></i><b>(4)</b>
+    ...
+  })</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The query or queries which should be updated with the result of the mutation.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The type of operation being performed. Should be "add", "refresh" or "delete". Defaults to "add" if not provided.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The field on the object used to identify it. Defaults to "id" if not provided.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The type of object being operated on.</td>
+</tr>
+</table>
+</div>
+<div class="sect1">
+<h2 id="_supporting_app_restarts_while_offline"><a class="anchor" href="#_supporting_app_restarts_while_offline"></a>Supporting app restarts while offline</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An Apollo client holds all mutation parameters in memory.
+An offline Apollo client continues to store mutation parameters and once online, it restores all mutations to memory.
+Any update functions that are supplied to mutations cannot be cached by an Apollo client resulting in the loss of all optimistic responses after a restart.
+<em>Update functions</em> supplied to mutations cannot be saved in the cache.
+As a result, all <em>optimisticResponses</em> disappear from the application after a restart and  only reappear when the Apollo client becomes online and successfully syncs with the server.</p>
+</div>
+<div class="paragraph">
+<p>To prevent the loss of all <em>optimisticResponses</em> after a restart, you can configure the <em>Update Functions</em> to restore all <em>optimisticResponses</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const updateFunctions = {
+  // Can contain update functions from each component
+  ...ItemUpdates,
+  ...TasksUpdates
+}
+
+let config = {
+  mutationCacheUpdates: updateFunctions,
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also use <code>getUpdateFunction</code> to automatically generate functions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const { createMutationOptions, CacheOperation } = require('@aerogear/voyager-client');
+
+const updateFunctions = {
+  // Can contain update functions from each component
+  createTask: getUpdateFunction({
+      mutationName: 'createTask',
+      idField: 'id',
+      updateQuery: GET_TASKS,
+      operationType: CacheOperation.ADD
+    }),
+  deleteTask: getUpdateFunction({
+      mutationName: 'deleteTask',
+      idField: 'id',
+      updateQuery: GET_TASKS,
+      operationType: CacheOperation.DELETE
+    })
+}
+
+let config = {
+  ...
+  mutationCacheUpdates: updateFunctions,
+  ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ensuring_specified_mutations_are_performed_online_only"><a class="anchor" href="#_ensuring_specified_mutations_are_performed_online_only"></a>Ensuring specified mutations are performed online only</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you wish to ensure certain mutations are only executed when the client is online, use the GraphQL directive <code>@onlineOnly</code>, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-graphql hljs" data-lang="graphql">exampleMutation(...) @onlineOnly {
+  ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sync-client-offline-queue-listener"><a class="anchor" href="#sync-client-offline-queue-listener"></a>Listening for events</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To handle all notifications about offline related events, use the <strong>offlineQueueListener</strong> listener in the config object</p>
+</div>
+<div class="paragraph">
+<p>The following events are emitted:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>onOperationEnqueued</code> - Called when new operation is being added to offline queue</p>
+</li>
+<li>
+<p><code>onOperationSuccess</code> - Called when back online and operation succeeds</p>
+</li>
+<li>
+<p><code>onOperationFailure</code> - Called when back online and operation fails with GraphQL error</p>
+</li>
+<li>
+<p><code>queueCleared</code> - Called when offline operation queue is cleared</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can use this listener to build User Interfaces that show pending changes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cache-update-helpers"><a class="anchor" href="#cache-update-helpers"></a>Using cache update helpers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The @aerogear/voyager-client module provides an out of the box solution for managing updates to your application&#8217;s cache.
+It can intelligently generate cache update methods for both mutations and subscriptions.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_cache_update_helpers_for_mutations"><a class="anchor" href="#_using_cache_update_helpers_for_mutations"></a>Using cache update helpers for mutations</h3>
+<div class="paragraph">
+<p>The following example shows how to use these helper methods for mutations.
+To use these methods, create an offline client as described in <a href="#setup-offline-client">Creating an offline client</a> and then use the  <code>offlineMutate</code> method.
+The <code>offlineMutate</code> function accepts a <code>MutationHelperOptions</code> object as a parameter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const { createMutationOptions, CacheOperation } = require('@aerogear/voyager-client');
+
+const mutationOptions = {
+  mutation: ADD_TASK,
+  variables: {
+    title: 'item title'
+  },
+  updateQuery: {
+    query: GET_TASKS,
+    variables: {
+      filterBy: 'some filter'
+    }
+  },
+  typeName: 'Task',
+  operationType: CacheOperation.ADD,
+  idField: 'id'
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also provide more than one query to update the cache by providing an array to the <code>updateQuery</code> parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const mutationOptions = {
+  ...
+  updateQuery: [
+    { query: GET_TASKS, variables: {} }
+  ]
+  ,
+  ...
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example shows how to prepare an offline mutation to add a task using the <code>mutationOptions</code> object and how to update the <code>GET_TASK</code> query for the client&#8217;s cache.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const { createMutationOptions, CacheOperation } = require('@aerogear/voyager-client');
+
+client.offlineMutate&lt;Task&gt;(mutationOptions);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you do not want to use the offline client you can also use the <code>createMutationOptions</code> function directly.
+This function provides an Apollo compatible <code>MutationOptions</code> object to pass to your pre-existing client.
+The following example shows how to use this function where <code>mutationOptions</code> is the same object as the previous code example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const options = createMutationOptions(mutationOptions);
+
+client.mutate&lt;Task&gt;(options);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_cache_update_helpers_for_subscriptions"><a class="anchor" href="#_using_cache_update_helpers_for_subscriptions"></a>Using cache update helpers for subscriptions</h3>
+<div class="paragraph">
+<p>The @aerogear/voyager-client module provides a subscription helper which can generate the necessary options to be used with Apollo Client&#8217;s <code>subscribeToMore</code> function.</p>
+</div>
+<div class="paragraph">
+<p>To use this helper, we first need to create some options, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const { CacheOperation } = require('@aerogear/voyager-client');
+
+const options = {
+  subscriptionQuery: TASK_ADDED_SUBSCRIPTION,
+  cacheUpdateQuery: GET_TASKS,
+  operationType: CacheOperation.ADD
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This options object informs the subscription helper that for every data object
+received because of the <code>TASK_ADDED_SUBSCRIPTION</code> the <code>GET_TASKS</code> query should also be kept up to date in the cache.</p>
+</div>
+<div class="paragraph">
+<p>You can then create the required cache update functions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const { createSubscriptionOptions } = require('@aerogear/voyager-client');
+
+const subscriptionOptions = createSubscriptionOptions(options);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To use this helper, pass this <code>subscriptionOptions</code> variable to the <code>subscribeToMore</code> function of our <code>ObservableQuery</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const query = client.watchQuery&lt;AllTasks&gt;({
+  query: GET_TASKS
+});
+
+query.subscribeToMore(subscriptionOptions);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The cache is kept up to date while automatically performing data deduplication.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_cache_update_helpers_for_multiple_subscriptions"><a class="anchor" href="#_using_cache_update_helpers_for_multiple_subscriptions"></a>Using cache update helpers for multiple subscriptions</h3>
+<div class="paragraph">
+<p>The @aerogear/voyager-client module provides the ability to automatically call <code>subscribeToMore</code> on your <code>ObservableQuery</code>.
+This can be useful in a situation where you may have multiple subscriptions which can affect one single query.
+For example, if you have a <code>TaskAdded</code>, <code>TaskDeleted</code>, and a <code>TaskUpdated</code> subscription you require three separate <code>subscribeToMore</code> function calls.
+To avoid this, use the <code>subscribeToMoreHelper</code> function from the @aerogear/voyager-client module to automatically handle this by passing an array of subscriptions and their corresponding queries:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const { CacheOperation } = require('@aerogear/voyager-client');
+
+const addOptions = {
+  subscriptionQuery: TASK_ADDED_SUBSCRIPTION,
+  cacheUpdateQuery: GET_TASKS,
+  operationType: CacheOperation.ADD
+}
+
+const deleteOptions = {
+  subscriptionQuery: TASK_DELETED_SUBSCRIPTION,
+  cacheUpdateQuery: GET_TASKS,
+  operationType: CacheOperation.DELETE
+}
+
+const updateOptions = {
+  subscriptionQuery: TASK_UPDATED_SUBSCRIPTION,
+  cacheUpdateQuery: GET_TASKS,
+  operationType: CacheOperation.REFRESH
+}
+
+const query = client.watchQuery&lt;AllTasks&gt;({
+  query: GET_TASKS
+});
+
+subscribeToMoreHelper(query, [addOptions, deleteOptions, updateOptions]);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h1 id="_detecting_network_status" class="sect0"><a class="anchor" href="#_detecting_network_status"></a>Detecting Network Status</h1>
+<div class="paragraph">
+<p>Use the NetworkStatus interface to check the current network status, or to register a listener which performs actions when the status of the network changes.</p>
+</div>
+<div class="paragraph">
+<p>Two default implementations are provided:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>WebNetworkStatus</strong>  for web browsers</p>
+</li>
+<li>
+<p><strong>CordovaNetworkStatus</strong> for Cordova</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates how to register a listener using <code>CordovaNetworkStatus</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">import { CordovaNetworkStatus, NetworkInfo } from '@aerogear/voyager-client';
+const networkStatus = new CordovaNetworkStatus();
+
+networkStatus.onStatusChangeListener({
+  onStatusChange: info =&gt; {
+    const online = info.online;
+    if (online) {
+      //client is online, perform some actions
+    } else {
+      //client is offline
+    }
+  }
+});
+
+let config = {
+  ...
+  networkStatus: networkStatus,
+  ...
+};
+
+//create a new client using the config</code></pre>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This site was built using <a href="http://docs.antora.org">Antora</a> .</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

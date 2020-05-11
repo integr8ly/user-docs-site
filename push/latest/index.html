@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Using the Push Notifications Service :: Integreatly Docs Site</title>
+    <link rel="canonical" href="https://integr8ly.github.io/user-docs-site/push/latest/index.html">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://integr8ly.github.io/user-docs-site">Integreatly Docs Site</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="/"><img src="https://avatars1.githubusercontent.com/u/41683098?s=80&v=4"</a>        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://github.com/integr8ly"> </a>
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+                  </div>
+        <div class="navbar-item">
+         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="push" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Push Notifications</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Push Notifications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#introduction">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#setting-up-the-push-service">Setting Up</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#setting-up-the-push-client-app">App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#registering-device">Registering device</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#sending-a-push-notification-push">Sending a Notification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#handling-push-notifications-push">Handling a Notification</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Push Notifications</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Data Sync</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../data-sync/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Integreatly</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integreatly/index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.7/index.html">v1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.6/index.html">v1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../integreatly/v1.5/index.html">v1.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Push Notifications</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../integreatly/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Push Notifications</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/aerogear/aerogear-unifiedpush-server/edit/master/integreatly-docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Using the Push Notifications Service</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#push-terminology-push">Push Notifications Terminology</a></li>
+<li><a href="#setting-up-the-push-service">Setting Up the Push Notifications Mobile Service</a>
+<ul class="sectlevel2">
+<li><a href="#obtaining_firebase_cloud_messaging_credentials-push">Obtaining Firebase Cloud Messaging Credentials</a></li>
+<li><a href="#enable_push_notifications_for_ios_app-push">Obtaining Apple Push Notification Service Credentials</a></li>
+<li><a href="#creating-variant-push">Creating a variant</a></li>
+<li><a href="#setting-up-sdk-push">Setting up the Push Notifications Service SDK</a></li>
+</ul>
+</li>
+<li><a href="#registering-device">Registering device on Push Notifications Service</a></li>
+<li><a href="#sending-a-push-notification-push">Sending a Push Notification using the Unified Push Admin UI</a></li>
+<li><a href="#handling-push-notifications-push">Handling Incoming Push Notifications</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div id="introduction" class="paragraph">
+<p>The Push Notifications service allows you to send native push notifications to different mobile operating systems.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Code once and push notifications to iOS and Android.</p>
+</li>
+<li>
+<p>Push notifications to either iOS only or Android only.</p>
+</li>
+<li>
+<p>Push notifications to different variants of a mobile app.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The service supports:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://developer.apple.com/notifications/" target="_blank" rel="noopener">Apple Push Notification Service</a></p>
+</li>
+<li>
+<p><a href="https://firebase.google.com/products/cloud-messaging/" target="_blank" rel="noopener">Firebase Cloud Messaging</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Push Notifications service offers a unified Notification Service API to the above mentioned Push Network Services.
+It can be seen as a <em>broker</em> that distributes push messages to different 3rd party Push Networks.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The payload of the push notification is delivered to 3rd party Push Network providers, Google or Apple. AeroGear recommends that users do not send any sensitive personal or confidential information (for example, a social security number, financial account or transactional information) as part of any Push Notification. Users of push notifications should not have an expectation of secure transmission.</p>
+</li>
+<li>
+<p>For analytic purposes, the service stores the content of the alert key sent to the UnifiedPush Server.
+The content of the alert key belongs to the metadata, which is deleted after 30 days, using a nightly job within the UnifiedPush Server.</p>
+</li>
+<li>
+<p>You are only able to send push notifications to a real device, sending push notifications to an emulator fails.</p>
+</li>
+<li>
+<p>Push is a signaling mechanism and is not suitable to be used as a data carrying system, for example, a chat application.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="https://developer.apple.com/notifications/" target="_blank" rel="noopener">Apple Push Notification Service</a></p>
+</li>
+<li>
+<p><a href="https://firebase.google.com/products/cloud-messaging/" target="_blank" rel="noopener">Firebase Cloud Messaging</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="push-terminology-push"><a class="anchor" href="#push-terminology-push"></a>Push Notifications Terminology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes terminology that is associated with Push Notifications.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Push Application</dt>
+<dd>
+<p>A logical construct that represents an Mobile App, for example, <em>Mobile HR</em>.</p>
+</dd>
+<dt class="hdlist1">Push Notification Message</dt>
+<dd>
+<p>A simple message to be sent to a Push Application.</p>
+</dd>
+<dt class="hdlist1">Sender Endpoint API</dt>
+<dd>
+<p>A RESTful API that receives Push Notification Message requests for a PushApplication or some of its different Variants. The Server translates this request into the platform specific details and delivers the payload to the 3rd party cloud providers, which eventually might deliver the message to the physical device.</p>
+</dd>
+<dt class="hdlist1">Variant</dt>
+<dd>
+<p>A variant of the Push Application, representing a specific mobile platform, like iOS or Android, or even more fine-grained differentiation like iPad or iPhone.
+There can be multiple variants for a single Push Application (for example, <em>Mobile HR Android</em>, <em>Mobile HR iPad</em>, <em>Mobile HR iOS free</em> or _Mobile HR iOS premium).
+Each supported variant type contains some platform specific properties, such as a Google API key (Android) or passphrase and certificate (Apple).</p>
+</dd>
+<dt class="hdlist1">APNs</dt>
+<dd>
+<p><a href="https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1">Apple Push Notification service</a>.</p>
+</dd>
+<dt class="hdlist1">Installation</dt>
+<dd>
+<p>Represents an actual device, registered with the UnifiedPush Server. User1 running <em>HR Android</em> app, while User2 runs <em>HR iPhone premium</em> on his phone.</p>
+</dd>
+<dt class="hdlist1">Administrative User Interface</dt>
+<dd>
+<p>(AUI) The Unified Push Admin UI Web UI that allows you manage Push Applications and Variants, view statistics and send Push Notifications to devices.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up-the-push-service"><a class="anchor" href="#setting-up-the-push-service"></a>Setting Up the Push Notifications Mobile Service</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="obtaining_firebase_cloud_messaging_credentials-push"><a class="anchor" href="#obtaining_firebase_cloud_messaging_credentials-push"></a>Obtaining Firebase Cloud Messaging Credentials</h3>
+<div class="paragraph">
+<p>This procedure describes how to obtain Firebase Cloud Messaging Credentials.</p>
+</div>
+<div class="paragraph">
+<div class="title">Prerequisites</div>
+<p>Before the Android application is able to receive the notifications, you must set up access to Firebase Cloud Messaging.
+The following credentials are necessary to set up Firebase Cloud Messaging for your app:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Server key</strong></p>
+</li>
+<li>
+<p><strong>Sender ID</strong></p>
+</li>
+<li>
+<p><code>google-services.json</code> file containing the credentials required to connect your app to Firebase and Google services.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>From the <em>Project Settings</em> screen, switch to the <em>Cloud Messaging</em> tab, where you can find the <strong>Server key</strong> and <strong>Sender ID</strong> (known in GCM as <strong>Project Number</strong>). There is also a <em>Legacy server key</em> but it should not be used for new projects.</p>
+</li>
+<li>
+<p>Download the <code>google-services.json</code> file as described in the <a href="https://support.google.com/firebase/answer/7015592?hl=en" target="_blank" rel="noopener">Google Documentation</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enable_push_notifications_for_ios_app-push"><a class="anchor" href="#enable_push_notifications_for_ios_app-push"></a>Obtaining Apple Push Notification Service Credentials</h3>
+<div class="paragraph">
+<p>This procedure describes how to enable Push Notifications for your iOS application and get the credentials required for push from Apple.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Follow the <a href="https://help.apple.com/xcode/mac/current/#/devdfd3d04a1">official Apple guide</a> to enable push notifications for your Xcode project.</p>
+</li>
+<li>
+<p>Follow the <a href="https://help.apple.com/developer-account/#/dev82a71386a">official Apple guide</a> to generate an APNs client TLS certificate and export the client TLS identity from your Mac.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Make sure to protect the p12 file with a password.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-variant-push"><a class="anchor" href="#creating-variant-push"></a>Creating a variant</h3>
+<div class="paragraph">
+<p>This procedure describes how to register your app on the UnifiedPush Server</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log into the Solution Explorer.</p>
+</li>
+<li>
+<p>Click <strong>Open Console</strong> beside <strong>Push Notification Service</strong>.</p>
+</li>
+<li>
+<p>If push applications already exist, they are displayed, click "Create Application" to navigate to the Welcome page.
+If no push applications exist, the Welcome page is displayed.</p>
+</li>
+<li>
+<p>Click <strong>Start Here</strong> to dismiss the Welcome Page and go to the <strong>Create Application</strong> screen</p>
+</li>
+<li>
+<p>Enter a name for your application and click <strong>Create App</strong> to go to the Variant screen</p>
+</li>
+<li>
+<p>Click <strong>Add a Variant</strong></p>
+</li>
+<li>
+<p>Enter a name for your variant and select the platform that you intend to target</p>
+</li>
+<li>
+<p>Enter the Push Network details necessary for your push network and click <strong>Create</strong></p>
+</li>
+<li>
+<p>Copy each of the various code snippets into its corresponding file in your application</p>
+</li>
+<li>
+<p>Build and deploy your app</p>
+</li>
+<li>
+<p>Click the <strong>Skip the wizard</strong> link to finish.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-up-sdk-push"><a class="anchor" href="#setting-up-sdk-push"></a>Setting up the Push Notifications Service SDK</h3>
+<div class="paragraph">
+<p>This section helps you to set up the Push Notifications service SDK in your App.
+It describes how to set up and initialize the Push Notifications service SDK.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Android</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>A <a href="https://firebase.google.com/" target="_blank" rel="noopener">Firebase account</a>.</p>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">iOS</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>An <a href="https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1" target="_blank" rel="noopener">APNs service</a>.</p>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Import the libraries</p>
+</li>
+<li>
+<p>Install <code>cordova-plugin-aerogear-push</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cordova plugin add @aerogear/cordova-plugin-aerogear-push</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install the Unified Push Server package needed for device registration:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ npm install --save @aerogear/push</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="registering-device"><a class="anchor" href="#registering-device"></a>Registering device on Push Notifications Service</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To receive native push notifications from a Push Network, for example APNs or FCM, the mobile device is identified with a unique device-token assigned by that Push Network.
+This device-token is passed, by the operating system, to the mobile application.
+Refer to the operating system and Push Network documentation for further details.</p>
+</div>
+<div class="paragraph">
+<p>Every time a user launches a mobile app,  that app receives the  <code>device-token</code>, from a <em>platform-specific</em> method (or callback).
+Since the Push Network  may assign a new token to a device, AeroGear recommends that the app registers the <code>device-token</code> with the UnifiedPush Server each time.</p>
+</div>
+<div class="paragraph">
+<p>The required metadata for an <code>Installation</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>deviceToken:</strong> _Identifies the device/user-agent within its Push Network.</p>
+</li>
+<li>
+<p><strong>variantID:</strong> The ID of the variant, where the client belongs to</p>
+</li>
+<li>
+<p><strong>variantSecret:</strong> Password of the actual variant</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The AeroGear UnifiedPush Server is able to store some user-specific metadata as well:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>deviceType:</strong> The device type of the device or the user agent.</p>
+</li>
+<li>
+<p><strong>operatingSystem:</strong> The name of the underlying Operating System.</p>
+</li>
+<li>
+<p><strong>osVersion:</strong> The version of the used Operating System.</p>
+</li>
+<li>
+<p><strong>alias:</strong> Application specific alias to identify users with the system. For instance an <code>email address</code> or a <code>username</code>.</p>
+</li>
+<li>
+<p><strong>categories:</strong> Used to apply one or more "tags".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The device-token needs to be registered with the UnifiedPush Server, to indicate there is a new Installation for a Variant. This registration is performed by calling an endpoint of the server.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">import { PushRegistration } from "@aerogear/push";
+
+new PushRegistration(app.config).register().then(() =&gt; {
+    // Registration with UPS successful, you can now send push notifications from the UPS UI
+}).catch(err =&gt; {
+    // Error on device registration
+});</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Optionally, you can pass the parameters below to the register method
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">{
+  alias: 'some-alias',
+  categories: ['one', 'or', 'more', 'categories'],
+  timeout: 5000 // in milliseconds
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sending-a-push-notification-push"><a class="anchor" href="#sending-a-push-notification-push"></a>Sending a Push Notification using the Unified Push Admin UI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Unified Push Admin UI allows you to send Push Notifications.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Make sure the Push Notifications service is provisioned.</p>
+</li>
+<li>
+<p>Select a route in OpenShift.</p>
+</li>
+<li>
+<p>Login with your OpenShift credentials.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+On first login you need to provide the OpenShift OAuth service permissions to read your user account.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Admin UI</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the Unified Push Admin UI in a browser.</p>
+</li>
+<li>
+<p>Select the target application from the home page and click <strong>Send Notification To This App</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/send1.png" alt="Send a Push">
+</div>
+</div>
+</li>
+<li>
+<p>When the <em>Send Push</em> dialog displays, enter text in the <strong>Message</strong> form.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/send2.png" alt="Enter the payload">
+</div>
+</div>
+</li>
+<li>
+<p>Click <strong>Send Push Notification</strong> to send the message to the target application.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Java API</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add <a href="https://github.com/aerogear/aerogear-unifiedpush-java-client/">unifiedpush-java-client</a> as a dependency to your project.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.jboss.aerogear&lt;/groupId&gt;
+  &lt;artifactId&gt;unifiedpush-java-client&lt;/artifactId&gt;
+  &lt;version&gt;[version]&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Send the message to the target application.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">final PushSender sender = DefaultPushSender
+        .withRootServerURL("&lt;pushServerURL e.g http(s)//host:port/context&gt;")
+        .pushApplicationId("&lt;pushApplicationId e.g. 1234456-234320&gt;")
+        .masterSecret("&lt;masterSecret e.g. 1234456-234320&gt;")
+        .build();
+
+final UnifiedMessage unifiedMessage = UnifiedMessage
+        .withMessage()
+        .alert("Hello from Java Sender API!")
+        .build();
+
+sender.send(unifiedMessage, () -&gt; {
+    //do cool stuff
+});</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Node.js API</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add <a href="https://github.com/aerogear/aerogear-unifiedpush-nodejs-client/">unifiedpush-node-sender</a> as a dependency to your project.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">npm i unifiedpush-node-sender</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Send the message to the target application.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const agSender = require('unifiedpush-node-sender');
+
+const settings = {
+  url: "&lt;pushServerURL e.g http(s)//host:port/context&gt;",
+  applicationId: "&lt;pushApplicationId e.g. 1234456-234320&gt;",
+  masterSecret: "&lt;masterSecret e.g. 1234456-234320&gt;"
+
+};
+
+const message = {
+  alert: "Hello from the Node.js Sender API!"
+};
+
+const options = {
+  config: {
+    ttl: 3600
+  }
+};
+
+agSender(settings).then((client) =&gt; {
+  client.sender.send(message, options).then((response) =&gt; {
+    console.log('success', response);
+  }).catch((error) =&gt; {
+    console.log('error', error);
+  })
+});</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">REST</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Send the message to the target application.</p>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -u "&lt;pushApplicationId&gt;:&lt;masterSecret&gt;"  \
+   -v -H "Accept: application/json" -H "Content-type: application/json"  \
+   -X POST  -d \
+  '{
+     "message": {
+      "alert": "Hello from the curl HTTP Sender!",
+      "sound": "default"
+     }
+   }'  \
+   &lt;pushServerURL&gt;/rest/sender</code></pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The 3rd party Push Network is responsible for delivering the Push Notification to the target application.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="handling-push-notifications-push"><a class="anchor" href="#handling-push-notifications-push"></a>Handling Incoming Push Notifications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes how to handle incoming push notifications in your foregrounded application.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Push notifications that arrive when the application is in the background are always handled by the OS.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Add the following code to your app:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">import { PushRegistration } from "@aerogear/push";
+
+PushRegistration.onMessageReceived((notification: any) =&gt; {
+  console.log('Received a push notification', notification);
+});</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Build and run your app.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This site was built using <a href="http://docs.antora.org">Antora</a> .</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
